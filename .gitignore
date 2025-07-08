@@ -1,0 +1,6 @@
+.idea/
+deno.lock
+.env
+gen_emojis/
+payload_log/
+sample-payloads/

@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "main": "deno run --allow-net src/main.ts",
+    "gen-api": "deno run --allow-net --allow-env --allow-sys --allow-read --allow-write src/gen-api.ts",
+    "test-payloads": "deno run --env-file --allow-env --allow-net src/test-payloads.ts"
+  },
+  "imports": {
+    "openapi-typescript": "npm:openapi-typescript@^7.8.0",
+    "openapi-fetch": "npm:openapi-fetch@^0.14.0",
+    "sharp": "npm:sharp@^0.34.3",
+    "xml-js": "npm:xml-js@^1.6.11"
+  }
+}
+
