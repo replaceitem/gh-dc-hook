@@ -84,6 +84,12 @@ const icons: IconOptions[] = [
         icon: 'issue-closed',
         color: COLORS.done.hex,
     },
+    {
+        name: 'comment',
+        icon: 'comment',
+        color: COLORS.gray.hex,
+    },
+
 ];
 
 
