@@ -40,7 +40,7 @@ const renderIcon = async (options: IconOptions) => {
     console.log(`Fetching icon ${iconId}`);
     const svg = await getIcon(iconId);
     const coloredSvg = setSvgColor(svg, options.color);
-    const name = `gh_${options.name}`;
+    const name = `gh_${options.name.replace(/-/g, '_')}`;
     console.log(`Saving to ${name}.png`);
     await Deno.mkdir('./gen_emojis', {recursive: true});
     await sharp(Buffer.from(coloredSvg))
@@ -51,6 +51,7 @@ const renderIcon = async (options: IconOptions) => {
 
 
 const icons: IconOptions[] = [
+    // Stars
     {
         name: 'star',
         icon: 'star-fill',
@@ -61,8 +62,32 @@ const icons: IconOptions[] = [
         icon: 'star',
         color: COLORS.gray.hex,
     },
+
+    // Issues
+    {
+        name: 'issue-opened',
+        icon: 'issue-opened',
+        color: COLORS.open.hex,
+    },
+    {
+        name: 'issue-reopen',
+        icon: 'issue-reopened',
+        color: COLORS.open.hex,
+    },
+    {
+        name: 'issue-skip',
+        icon: 'skip',
+        color: COLORS.gray.hex,
+    },
+    {
+        name: 'issue-done',
+        icon: 'issue-closed',
+        color: COLORS.done.hex,
+    },
 ];
 
+
+await Deno.remove('./gen_emojis', {recursive: true});
 for (const icon of icons) {
     await renderIcon(icon);
 }

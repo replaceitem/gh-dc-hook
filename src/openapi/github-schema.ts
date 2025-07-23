@@ -14582,6 +14582,7 @@ export interface components {
             created_at: string;
             read_only: boolean;
             added_by?: string | null;
+            /** Format: date-time */
             last_used?: string | null;
             enabled?: boolean;
         };
@@ -16710,6 +16711,8 @@ export interface components {
             created_at: string;
             verified: boolean;
             read_only: boolean;
+            /** Format: date-time */
+            last_used?: string | null;
         };
         /** Marketplace Account */
         "marketplace-account": {
@@ -16801,6 +16804,8 @@ export interface components {
             key: string;
             /** Format: date-time */
             created_at?: string;
+            /** Format: date-time */
+            last_used?: string | null;
         };
         "billing-usage-report-user": {
             usageItems?: {

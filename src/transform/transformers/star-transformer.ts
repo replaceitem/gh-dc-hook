@@ -3,15 +3,14 @@ import {SchemaWebhookStarCreated, SchemaWebhookStarDeleted} from "../../openapi/
 import {SchemaRichEmbed} from "../../openapi/discord-schema.ts";
 import {COLORS, EMOJIS} from "../../util/constants.ts";
 
-type StarEvent = SchemaWebhookStarCreated | SchemaWebhookStarDeleted;
+type StarSchema = SchemaWebhookStarCreated | SchemaWebhookStarDeleted;
 
-export class StarTransformer extends EmbedTransformer<StarEvent> {
-    override transformEmbed(e: StarEvent): SchemaRichEmbed {
-        const added = e.action === 'created';
+export class StarTransformer extends EmbedTransformer<StarSchema> {
+    override transformEmbed(starSchema: StarSchema): SchemaRichEmbed {
+        const added = starSchema.action === 'created';
         return {
-            ...super.transformEmbed(e),
-            title: `${e.repository.full_name}`,
-            url: e.repository.url,
+            ...this.senderAsAuthor(starSchema),
+            ...this.repositoryAsTitle(starSchema),
             color: added ? COLORS.star.int : COLORS.gray.int,
             description: added ?
                 `${EMOJIS.star} New star added` :

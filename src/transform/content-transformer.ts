@@ -2,11 +2,13 @@ import {EventSchema, EventSchemasByKey, IncomingWebhookDataByKey} from "../githu
 import {EventTransformer} from "./event-transformer.ts";
 import {WebhookContent} from "../discord-webhook.ts";
 import {StarTransformer} from "./transformers/star-transformer.ts";
+import {IssuesTransformer} from "./transformers/issues-transformer.ts";
 
 type EventHandlers = Record<string, EventTransformer<EventSchema>>;
 
 const transformersByEvent: EventHandlers = {
     "star": new StarTransformer(),
+    "issues": new IssuesTransformer(),
 };
 
 export const transformContent = <T extends keyof EventSchemasByKey>(webhookEvent: IncomingWebhookDataByKey<T>): WebhookContent | undefined => {

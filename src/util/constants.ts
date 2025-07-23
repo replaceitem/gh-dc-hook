@@ -9,10 +9,16 @@ const color = (hex: string) => {
 export const COLORS = {
     star: color('#E3B341'),
     gray: color('#9198A1'),
+    open: color('#3FB950'),
+    done: color('#AD7DF8'),
 }
 
 
 export const EMOJIS = {
     unstar: '<:gh_unstar:1396260828918972549>',
     star: '<:gh_star:1396260826922356896>',
+    issueSkip: '<:gh_issue_skip:1397649032289058947>',
+    issueReopen: '<:gh_issue_reopen:1397649029793447946>',
+    issueOpen: '<:gh_issue_open:1397649028430168184>',
+    issueDone: '<:gh_issue_done:1397649026907767004>',
 };

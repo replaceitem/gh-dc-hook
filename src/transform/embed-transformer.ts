@@ -2,31 +2,48 @@ import {EventTransformer} from "./event-transformer.ts";
 import {EventSchema} from "../github-webooks.ts";
 import {WebhookContent} from "../discord-webhook.ts";
 import {SchemaRichEmbed, SchemaRichEmbedAuthor} from "../openapi/discord-schema.ts";
-import {MergeUnion} from "../util/type-helpers.ts";
+import {SchemaRepository, SchemaSimpleUser} from "../openapi/github-schema.ts";
+
+
+type WithSender = {
+    sender: SchemaSimpleUser
+};
+type WithRepository = {
+    repository: SchemaRepository
+};
 
 export abstract class EmbedTransformer<T extends EventSchema> extends EventTransformer<T> {
-    public transform(e: T): WebhookContent {
+    public transform(e: T): WebhookContent | undefined {
+        const embed = this.transformEmbed(e);
+        if(!embed) return undefined;
         return {
-            embeds: [
-                this.transformEmbed(e),
-            ]
+            embeds: [embed]
         };
     }
 
-    public transformEmbed(e: T): SchemaRichEmbed {
+    public abstract transformEmbed(e: T): SchemaRichEmbed | undefined;
+
+    protected senderAsAuthor(withSender: WithSender) {
         return {
-            author: this.transformAuthor(e),
+            author: this.transformAuthor(withSender),
         };
     }
 
-    protected transformAuthor(e: T): SchemaRichEmbedAuthor | undefined {
-        const anyEvent = e as MergeUnion<EventSchema>;
-        const sender = anyEvent.sender;
+    protected transformAuthor(withSender: WithSender): SchemaRichEmbedAuthor | undefined {
+        const sender = withSender.sender;
         if(!sender || !sender.login) return undefined;
         return {
             name: sender.login,
             icon_url: sender.avatar_url,
             url: sender.html_url,
         };
+    }
+
+
+    protected repositoryAsTitle(withRepository: WithRepository) {
+        return {
+            title: withRepository.repository.full_name,
+            url: withRepository.repository.url,
+        }
     }
 }

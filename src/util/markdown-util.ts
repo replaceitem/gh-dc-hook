@@ -1,0 +1,1 @@
+export const mdLink = (text: string, url: string) => `[${text}](${url})`;
