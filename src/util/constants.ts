@@ -22,4 +22,5 @@ export const EMOJIS = {
     issueOpen: '<:gh_issue_open:1397649028430168184>',
     issueDone: '<:gh_issue_done:1397649026907767004>',
     comment: '<:gh_comment:1397714138599395368>',
+    watch: '<:gh_watch:1397721024942047363>',
 };

@@ -5,6 +5,7 @@ Converts GitHub webhooks to nicely formatted discord webhooks.
 * [GitHub Webhook Payloads Documentation](https://docs.github.com/en/webhooks/webhook-events-and-payloads)
 * [GitHub icons](https://primer.style/octicons/)
 * [GitHub Compatible Webhook Docs](https://discord.com/developers/docs/resources/webhook#execute-githubcompatible-webhook)
+* [GitHub icons color scheme](https://primer.style/octicons/usage-guidelines/#specific-use-cases)
 
 ## Supported events
 
@@ -80,7 +81,7 @@ Converts GitHub webhooks to nicely formatted discord webhooks.
 | `sub_issues`                      | ❌                    | ❌         |
 | `team_add`                        | ❌                    | ❌         |
 | `team`                            | ❌                    | ❌         |
-| `watch`                           | ✅                    | ❌         |
+| `watch`                           | ✅                    | ✅         |
 | `workflow_dispatch`               | ❌                    | ❌         |
 | `workflow_job`                    | ❌                    | ❌         |
 | `workflow_run`                    | ❌                    | ❌         |

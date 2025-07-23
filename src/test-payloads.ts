@@ -18,5 +18,5 @@ const loadSamplePayload = async <T extends EventKeys>(file: string) => {
     return JSON.parse(json) as IncomingWebhookDataByKey<T>;
 };
 
-const payload = await loadSamplePayload('issue_comment/created');
+const payload = await loadSamplePayload('watch/started');
 await onWebhookEvent(payload, credentials);

@@ -63,6 +63,13 @@ const icons: IconOptions[] = [
         color: COLORS.gray.hex,
     },
 
+    // Watch
+    {
+        name: 'watch',
+        icon: 'eye',
+        color: COLORS.gray.hex,
+    },
+
     // Issues
     {
         name: 'issue-opened',
@@ -84,12 +91,13 @@ const icons: IconOptions[] = [
         icon: 'issue-closed',
         color: COLORS.done.hex,
     },
+
+    // Issue comments
     {
         name: 'comment',
         icon: 'comment',
         color: COLORS.gray.hex,
     },
-
 ];
 
 
