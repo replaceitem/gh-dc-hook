@@ -1,13 +1,90 @@
-import {components, SchemaWebhookConfig} from "./openapi/github-schema.ts";
-import {FilterKeysByPrefix, FilterPropertiesByType, Prettify} from "./util/type-helpers.ts";
+import {StarWebhook} from "./schemas/star.ts";
+import {WatchWebhook} from "./schemas/watch.ts";
+import {IssuesWebhook} from "./schemas/issues.ts";
+import {IssueCommentWebhook} from "./schemas/issue-comment.ts";
+import { BaseWebhook } from "./schemas/base.ts";
 
-type Schemas = components["schemas"];
 
-export type EventSchemasByKey = Prettify<FilterPropertiesByType<FilterKeysByPrefix<Schemas, 'webhook-'>, string  | number | SchemaWebhookConfig>>;
+export interface Webhooks {
+    branch_protection_configuration: BaseWebhook;
+    branch_protection_rule: BaseWebhook;
+    check_run: BaseWebhook;
+    check_suite: BaseWebhook;
+    code_scanning_alert: BaseWebhook;
+    commit_comment: BaseWebhook;
+    create: BaseWebhook;
+    custom_property: BaseWebhook;
+    custom_property_values: BaseWebhook;
+    delete: BaseWebhook;
+    dependabot_alert: BaseWebhook;
+    deploy_key: BaseWebhook;
+    deployment: BaseWebhook;
+    deployment_protection_rule: BaseWebhook;
+    deployment_review: BaseWebhook;
+    deployment_status: BaseWebhook;
+    discussion: BaseWebhook;
+    discussion_comment: BaseWebhook;
+    fork: BaseWebhook;
+    github_app_authorization: BaseWebhook;
+    gollum: BaseWebhook;
+    installation: BaseWebhook;
+    installation_repositories: BaseWebhook;
+    installation_target: BaseWebhook;
+    issue_comment: IssueCommentWebhook;
+    issues: IssuesWebhook;
+    label: BaseWebhook;
+    marketplace_purchase: BaseWebhook;
+    member: BaseWebhook;
+    membership: BaseWebhook;
+    merge_group: BaseWebhook;
+    meta: BaseWebhook;
+    milestone: BaseWebhook;
+    org_block: BaseWebhook;
+    organization: BaseWebhook;
+    package: BaseWebhook;
+    page_build: BaseWebhook;
+    personal_access_token_request: BaseWebhook;
+    ping: BaseWebhook;
+    project_card: BaseWebhook;
+    project: BaseWebhook;
+    project_column: BaseWebhook;
+    projects_v2: BaseWebhook;
+    projects_v2_item: BaseWebhook;
+    projects_v2_status_update: BaseWebhook;
+    public: BaseWebhook;
+    pull_request: BaseWebhook;
+    pull_request_review_comment: BaseWebhook;
+    pull_request_review: BaseWebhook;
+    pull_request_review_thread: BaseWebhook;
+    push: BaseWebhook;
+    registry_package: BaseWebhook;
+    release: BaseWebhook;
+    repository_advisory: BaseWebhook;
+    repository: BaseWebhook;
+    repository_dispatch: BaseWebhook;
+    repository_import: BaseWebhook;
+    repository_ruleset: BaseWebhook;
+    repository_vulnerability_alert: BaseWebhook;
+    secret_scanning_alert: BaseWebhook;
+    secret_scanning_alert_location: BaseWebhook;
+    secret_scanning_scan: BaseWebhook;
+    security_advisory: BaseWebhook;
+    security_and_analysis: BaseWebhook;
+    sponsorship: BaseWebhook;
+    star: StarWebhook;
+    status: BaseWebhook;
+    sub_issues: BaseWebhook;
+    team_add: BaseWebhook;
+    team: BaseWebhook;
+    watch: WatchWebhook;
+    workflow_dispatch: BaseWebhook;
+    workflow_job: BaseWebhook;
+    workflow_run: BaseWebhook;
+}
 
-export type EventKeys = keyof EventSchemasByKey;
-export type EventSchema = EventSchemasByKey[EventKeys];
+export type WebhookKey = keyof Webhooks;
+export type Webhook = Webhooks[WebhookKey];
 
-export type IncomingWebhookDataByKey<E extends EventKeys = EventKeys> = {
-    [K in EventKeys]: { event: string; data: EventSchemasByKey[K] };
+export type IncomingWebhookData<E extends WebhookKey = WebhookKey> = {
+    [K in WebhookKey]: { event: K; data: Webhooks[K] };
 }[E];

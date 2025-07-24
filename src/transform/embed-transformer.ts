@@ -1,18 +1,9 @@
-import {EventTransformer} from "./event-transformer.ts";
-import {EventSchema} from "../github-webooks.ts";
 import {WebhookContent} from "../discord-webhook.ts";
 import {SchemaRichEmbed, SchemaRichEmbedAuthor} from "../openapi/discord-schema.ts";
-import {SchemaRepository, SchemaSimpleUser} from "../openapi/github-schema.ts";
+import {BaseRepositoryWebhook, BaseSenderWebhook, BaseWebhook} from "../schemas/base.ts";
+import {EventTransformer} from "./content-transformer.ts";
 
-
-type WithSender = {
-    sender: SchemaSimpleUser
-};
-type WithRepository = {
-    repository: SchemaRepository
-};
-
-export abstract class EmbedTransformer<T extends EventSchema> extends EventTransformer<T> {
+export abstract class EmbedTransformer<T extends BaseWebhook> extends EventTransformer<T> {
     public transform(e: T): WebhookContent | undefined {
         const embed = this.transformEmbed(e);
         if(!embed) return undefined;
@@ -23,14 +14,14 @@ export abstract class EmbedTransformer<T extends EventSchema> extends EventTrans
 
     public abstract transformEmbed(e: T): SchemaRichEmbed | undefined;
 
-    protected senderAsAuthor(withSender: WithSender) {
+    protected senderAsAuthor(senderWebhook: BaseSenderWebhook) {
         return {
-            author: this.transformAuthor(withSender),
+            author: this.transformAuthor(senderWebhook),
         };
     }
 
-    protected transformAuthor(withSender: WithSender): SchemaRichEmbedAuthor | undefined {
-        const sender = withSender.sender;
+    protected transformAuthor(senderWebhook: BaseSenderWebhook): SchemaRichEmbedAuthor | undefined {
+        const sender = senderWebhook.sender;
         if(!sender || !sender.login) return undefined;
         return {
             name: sender.login,
@@ -40,10 +31,10 @@ export abstract class EmbedTransformer<T extends EventSchema> extends EventTrans
     }
 
 
-    protected repositoryAsTitle(withRepository: WithRepository) {
+    protected repositoryAsTitle(repositoryWebhook: BaseRepositoryWebhook) {
         return {
-            title: withRepository.repository.full_name,
-            url: withRepository.repository.url,
+            title: repositoryWebhook.repository.full_name,
+            url: repositoryWebhook.repository.url,
         }
     }
 }

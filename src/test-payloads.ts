@@ -1,6 +1,6 @@
 import {onWebhookEvent} from "./webhook-event.ts";
 import {DiscordWebhookCredentials} from "./discord-webhook.ts";
-import {EventKeys, IncomingWebhookDataByKey} from "./github-webooks.ts";
+import {IncomingWebhookData, WebhookKey} from "./github-webooks.ts";
 
 const envOrThrow = (env: string): string => {
     const val = Deno.env.get(env);
@@ -13,9 +13,9 @@ const credentials: DiscordWebhookCredentials = {
     token: envOrThrow('DISCORD_WEBHOOK_TOKEN'),
 };
 
-const loadSamplePayload = async <T extends EventKeys>(file: string) => {
+const loadSamplePayload = async <T extends WebhookKey>(file: string) => {
     const json = await Deno.readTextFile(`./sample-payloads/${file}.json`);
-    return JSON.parse(json) as IncomingWebhookDataByKey<T>;
+    return JSON.parse(json) as IncomingWebhookData<T>;
 };
 
 const payload = await loadSamplePayload('watch/started');
