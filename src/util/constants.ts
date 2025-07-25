@@ -8,9 +8,10 @@ const color = (hex: string) => {
 
 export const COLORS = {
     star: color('#E3B341'),
-    gray: color('#9198A1'),
-    open: color('#3FB950'),
+    muted: color('#9198A1'),
+    success: color('#3FB950'),
     done: color('#AD7DF8'),
+    danger: color('#F85149'),
 }
 
 
@@ -23,4 +24,9 @@ export const EMOJIS = {
     issueDone: '<:gh_issue_done:1397649026907767004>',
     comment: '<:gh_comment:1397714138599395368>',
     watch: '<:gh_watch:1397721024942047363>',
+    push: '<:gh_push:1398392837468455064>',
+    force_push: '<:gh_force_push:1398392835459383318>',
+    commit_top: '<:gh_commit_top:1398392834159149056>',
+    commit_center: '<:gh_commit_center:1398392832619970670>',
+    commit_bottom: '<:gh_commit_bottom:1398433333788020868>',
 };

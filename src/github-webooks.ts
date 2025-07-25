@@ -2,8 +2,8 @@ import {StarWebhook} from "./schemas/star.ts";
 import {WatchWebhook} from "./schemas/watch.ts";
 import {IssuesWebhook} from "./schemas/issues.ts";
 import {IssueCommentWebhook} from "./schemas/issue-comment.ts";
+import {PushWebhook} from "./schemas/push.ts";
 import { BaseWebhook } from "./schemas/base.ts";
-
 
 export interface Webhooks {
     branch_protection_configuration: BaseWebhook;
@@ -56,7 +56,7 @@ export interface Webhooks {
     pull_request_review_comment: BaseWebhook;
     pull_request_review: BaseWebhook;
     pull_request_review_thread: BaseWebhook;
-    push: BaseWebhook;
+    push: PushWebhook;
     registry_package: BaseWebhook;
     release: BaseWebhook;
     repository_advisory: BaseWebhook;
@@ -83,7 +83,6 @@ export interface Webhooks {
 }
 
 export type WebhookKey = keyof Webhooks;
-export type Webhook = Webhooks[WebhookKey];
 
 export type IncomingWebhookData<E extends WebhookKey = WebhookKey> = {
     [K in WebhookKey]: { event: K; data: Webhooks[K] };

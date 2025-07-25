@@ -8,6 +8,7 @@ interface IconOptions {
     icon: string;
     color: string;
     size?: number;
+    source?: 'octicons' | 'assets';
 }
 
 
@@ -22,9 +23,13 @@ const setSvgColor = (svg: string, color: string) => {
     return js2xml(svgJson);
 };
 
+const getAssetsIcon = async (iconId: string) => {
+    return await Deno.readTextFile(`./assets/${iconId}.svg`)
+};
+
 const iconCache = new Map<string, string>();
 
-const getIcon = async (iconId: string) => {
+const getOcticonIcon = async (iconId: string) => {
     const iconUrl = `https://raw.githubusercontent.com/primer/octicons/refs/heads/main/icons/${iconId}.svg`;
     const cachedIcon = iconCache.get(iconUrl);
     if(cachedIcon) return cachedIcon;
@@ -37,8 +42,9 @@ const getIcon = async (iconId: string) => {
 
 const renderIcon = async (options: IconOptions) => {
     const iconId = `${options.icon}-${options.size ?? 16}`;
-    console.log(`Fetching icon ${iconId}`);
-    const svg = await getIcon(iconId);
+    const source = options.source ?? 'octicons';
+    console.log(`Fetching icon ${iconId} from ${source}`);
+    const svg = source === 'octicons' ? await getOcticonIcon(iconId) : await getAssetsIcon(iconId);
     const coloredSvg = setSvgColor(svg, options.color);
     const name = `gh_${options.name.replace(/-/g, '_')}`;
     console.log(`Saving to ${name}.png`);
@@ -60,31 +66,31 @@ const icons: IconOptions[] = [
     {
         name: 'unstar',
         icon: 'star',
-        color: COLORS.gray.hex,
+        color: COLORS.muted.hex,
     },
 
     // Watch
     {
         name: 'watch',
         icon: 'eye',
-        color: COLORS.gray.hex,
+        color: COLORS.muted.hex,
     },
 
     // Issues
     {
         name: 'issue-opened',
         icon: 'issue-opened',
-        color: COLORS.open.hex,
+        color: COLORS.success.hex,
     },
     {
         name: 'issue-reopen',
         icon: 'issue-reopened',
-        color: COLORS.open.hex,
+        color: COLORS.success.hex,
     },
     {
         name: 'issue-skip',
         icon: 'skip',
-        color: COLORS.gray.hex,
+        color: COLORS.muted.hex,
     },
     {
         name: 'issue-done',
@@ -96,7 +102,37 @@ const icons: IconOptions[] = [
     {
         name: 'comment',
         icon: 'comment',
-        color: COLORS.gray.hex,
+        color: COLORS.muted.hex,
+    },
+
+    //  Push
+    {
+        name: 'push',
+        icon: 'repo-push',
+        color: COLORS.muted.hex,
+    },
+    {
+        name: 'force-push',
+        icon: 'repo-push',
+        color: COLORS.danger.hex,
+    },
+    {
+        name: 'commit-top',
+        icon: 'git-commit-top',
+        color: COLORS.muted.hex,
+        source: 'assets',
+    },
+    {
+        name: 'commit-center',
+        icon: 'git-commit-center',
+        color: COLORS.muted.hex,
+        source: 'assets',
+    },
+    {
+        name: 'commit-bottom',
+        icon: 'git-commit-bottom',
+        color: COLORS.muted.hex,
+        source: 'assets',
     },
 ];
 

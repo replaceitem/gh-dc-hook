@@ -13,7 +13,7 @@ export class IssueCommentTransformer extends EmbedTransformer<IssueCommentWebhoo
                 ...this.senderAsAuthor(webhook),
                 ...this.repositoryAsTitle(webhook),
                 description: `${EMOJIS.comment} \u00A0New ${linkedComment} on issue ${linkedIssueNumber}`,
-                color: COLORS.gray.int,
+                color: COLORS.muted.int,
                 fields: [
                     {
                         name: webhook.issue.title,

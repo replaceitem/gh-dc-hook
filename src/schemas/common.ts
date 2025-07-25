@@ -1462,3 +1462,98 @@ export interface Integration {
      */
     installations_count?: number;
 }
+
+export interface EnterpriseWebhooks {
+    /** @description A short description of the enterprise. */
+    description?: string | null;
+    /**
+     * Format: uri
+     * @example https://github.com/enterprises/octo-business
+     */
+    html_url: string;
+    /**
+     * Format: uri
+     * @description The enterprise's website URL.
+     */
+    website_url?: string | null;
+    /**
+     * @description Unique identifier of the enterprise
+     * @example 42
+     */
+    id: number;
+    /** @example MDEwOlJlcG9zaXRvcnkxMjk2MjY5 */
+    node_id: string;
+    /**
+     * @description The name of the enterprise.
+     * @example Octo Business
+     */
+    name: string;
+    /**
+     * @description The slug url identifier for the enterprise.
+     * @example octo-business
+     */
+    slug: string;
+    /**
+     * Format: date-time
+     * @example 2019-01-26T19:01:12Z
+     */
+    created_at: string | null;
+    /**
+     * Format: date-time
+     * @example 2019-01-26T19:14:43Z
+     */
+    updated_at: string | null;
+    /** Format: uri */
+    avatar_url: string;
+}
+
+export interface WebhooksCommit {
+    /** @description An array of files added in the commit. A maximum of 3000 changed files will be reported per commit. */
+    added?: string[];
+    /**
+     * Committer
+     * @description Metaproperties for Git author/committer information.
+     */
+    author: {
+        /** Format: date-time */
+        date?: string;
+        /** Format: email */
+        email: string | null;
+        /** @description The git author's name. */
+        name: string;
+        username?: string;
+    };
+    /**
+     * Committer
+     * @description Metaproperties for Git author/committer information.
+     */
+    committer: {
+        /** Format: date-time */
+        date?: string;
+        /** Format: email */
+        email: string | null;
+        /** @description The git author's name. */
+        name: string;
+        username?: string;
+    };
+    /** @description Whether this commit is distinct from any that have been pushed before. */
+    distinct: boolean;
+    id: string;
+    /** @description The commit message. */
+    message: string;
+    /** @description An array of files modified by the commit. A maximum of 3000 changed files will be reported per commit. */
+    modified?: string[];
+    /** @description An array of files removed in the commit. A maximum of 3000 changed files will be reported per commit. */
+    removed?: string[];
+    /**
+     * Format: date-time
+     * @description The ISO 8601 timestamp of the commit.
+     */
+    timestamp: string;
+    tree_id: string;
+    /**
+     * Format: uri
+     * @description URL that points to the commit API resource.
+     */
+    url: string;
+}

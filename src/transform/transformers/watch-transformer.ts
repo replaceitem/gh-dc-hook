@@ -8,7 +8,7 @@ export class WatchTransformer extends EmbedTransformer<WatchWebhook> {
         return {
             ...this.senderAsAuthor(webhook),
             ...this.repositoryAsTitle(webhook),
-            color: COLORS.gray.int,
+            color: COLORS.muted.int,
             description: `${EMOJIS.watch} \u00A0Started watching`,
         }
     }

@@ -14,12 +14,14 @@ export interface BaseWebhook {
     sender?: SimpleUser;
 }
 
-export interface BaseRepositoryWebhook {
+export interface BaseRepositoryWebhook extends BaseWebhook {
     repository: RepositoryWebhooks;
 }
 
-export interface BaseSenderWebhook {
+export interface BaseSenderWebhook extends BaseWebhook {
     sender: SimpleUser;
 }
 
-export interface BaseSenderRepositoryWebhook extends BaseRepositoryWebhook, BaseSenderWebhook {}
+export interface BaseSenderRepositoryWebhook extends BaseSenderWebhook {
+    repository: RepositoryWebhooks;
+}

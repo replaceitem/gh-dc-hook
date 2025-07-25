@@ -12,7 +12,7 @@ export class IssuesTransformer extends EmbedTransformer<IssuesWebhook> {
             return {
                 ...this.senderAsAuthor(webhook),
                 ...this.repositoryAsTitle(webhook),
-                color: webhook.action === 'closed' ? (webhook.issue.state_reason === 'completed' ? COLORS.done.int : COLORS.gray.int) : COLORS.open.int,
+                color: webhook.action === 'closed' ? (webhook.issue.state_reason === 'completed' ? COLORS.done.int : COLORS.muted.int) : COLORS.success.int,
                 description: `${this.getStateIcon(webhook)} \u00A0${linkedIssueNumber} ${this.getStateText(webhook)}`,
                 fields: [
                     {

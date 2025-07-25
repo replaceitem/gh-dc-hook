@@ -9,7 +9,7 @@ export class StarTransformer extends EmbedTransformer<StarWebhook> {
         return {
             ...this.senderAsAuthor(webhook),
             ...this.repositoryAsTitle(webhook),
-            color: added ? COLORS.star.int : COLORS.gray.int,
+            color: added ? COLORS.star.int : COLORS.muted.int,
             description: added ?
                 `${EMOJIS.star} New star added` :
                 `${EMOJIS.unstar} Star removed`,

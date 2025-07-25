@@ -1,7 +1,7 @@
 import {WebhookContent} from "../discord-webhook.ts";
 import {SchemaRichEmbed, SchemaRichEmbedAuthor} from "../openapi/discord-schema.ts";
 import {BaseRepositoryWebhook, BaseSenderWebhook, BaseWebhook} from "../schemas/base.ts";
-import {EventTransformer} from "./content-transformer.ts";
+import {EventTransformer} from "./event-transformer.ts";
 
 export abstract class EmbedTransformer<T extends BaseWebhook> extends EventTransformer<T> {
     public transform(e: T): WebhookContent | undefined {
