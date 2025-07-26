@@ -57,7 +57,7 @@ Converts GitHub webhooks to nicely formatted discord webhooks.
 | `projects_v2_item`                | ❌                    | ❌         |
 | `projects_v2_status_update`       | ❌                    | ❌         |
 | `public`                          | ✅                    | ❌         |
-| `pull_request`                    | ✅                    | ❌         |
+| `pull_request`                    | ✅                    | ✅         |
 | `pull_request_review_comment`     | ✅                    | ❌         |
 | `pull_request_review`             | ✅                    | ❌         |
 | `pull_request_review_thread`      | ❌                    | ❌         |

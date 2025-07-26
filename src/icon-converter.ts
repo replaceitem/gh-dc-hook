@@ -141,6 +141,33 @@ const icons: IconOptions[] = [
         icon: 'repo-forked',
         color: COLORS.muted.hex,
     },
+
+    // Pull requests
+    {
+        name: 'pr-open',
+        icon: 'git-pull-request',
+        color: COLORS.success.hex,
+    },
+    {
+        name: 'pr-open-draft',
+        icon: 'git-pull-request-draft',
+        color: COLORS.success.hex,
+    },
+    {
+        name: 'pr-draft',
+        icon: 'git-pull-request-draft',
+        color: COLORS.muted.hex,
+    },
+    {
+        name: 'pr-close',
+        icon: 'git-pull-request-closed',
+        color: COLORS.danger.hex,
+    },
+    {
+        name: 'pr-merge',
+        icon: 'git-merge',
+        color: COLORS.done.hex,
+    },
 ];
 
 

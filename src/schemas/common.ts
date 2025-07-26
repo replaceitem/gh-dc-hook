@@ -1557,3 +1557,314 @@ export interface WebhooksCommit {
      */
     url: string;
 }
+
+
+export interface PullRequest {
+    _links: {
+        /** Link */
+        comments: {
+            /** Format: uri-template */
+            href: string;
+        };
+        /** Link */
+        commits: {
+            /** Format: uri-template */
+            href: string;
+        };
+        /** Link */
+        html: {
+            /** Format: uri-template */
+            href: string;
+        };
+        /** Link */
+        issue: {
+            /** Format: uri-template */
+            href: string;
+        };
+        /** Link */
+        review_comment: {
+            /** Format: uri-template */
+            href: string;
+        };
+        /** Link */
+        review_comments: {
+            /** Format: uri-template */
+            href: string;
+        };
+        /** Link */
+        self: {
+            /** Format: uri-template */
+            href: string;
+        };
+        /** Link */
+        statuses: {
+            /** Format: uri-template */
+            href: string;
+        };
+    };
+    /** @enum {string|null} */
+    active_lock_reason: "resolved" | "off-topic" | "too heated" | "spam" | null;
+    additions?: number;
+    /** User */
+    assignee: SimpleUser | null;
+    assignees: (SimpleUser | null)[];
+    /**
+     * AuthorAssociation
+     * @description How the author is associated with the repository.
+     * @enum {string}
+     */
+    author_association: "COLLABORATOR" | "CONTRIBUTOR" | "FIRST_TIMER" | "FIRST_TIME_CONTRIBUTOR" | "MANNEQUIN" | "MEMBER" | "NONE" | "OWNER";
+    /**
+     * PullRequestAutoMerge
+     * @description The status of auto merging a pull request.
+     */
+    auto_merge: {
+        /** @description Commit message for the merge commit. */
+        commit_message: string | null;
+        /** @description Title for the merge commit message. */
+        commit_title: string | null;
+        /** User */
+        enabled_by: SimpleUser | null;
+        /**
+         * @description The merge method to use.
+         * @enum {string}
+         */
+        merge_method: "merge" | "squash" | "rebase";
+    } | null;
+    base: {
+        label: string;
+        ref: string;
+        /**
+         * Repository
+         * @description A git repository
+         */
+        repo: RepositoryWebhooks;
+        sha: string;
+        /** User */
+        user: SimpleUser | null;
+    };
+    body: string | null;
+    changed_files?: number;
+    /** Format: date-time */
+    closed_at: string | null;
+    comments?: number;
+    /** Format: uri */
+    comments_url: string;
+    commits?: number;
+    /** Format: uri */
+    commits_url: string;
+    /** Format: date-time */
+    created_at: string;
+    deletions?: number;
+    /** Format: uri */
+    diff_url: string;
+    /** @description Indicates whether or not the pull request is a draft. */
+    draft: boolean;
+    head: {
+        label: string | null;
+        ref: string;
+        /**
+         * Repository
+         * @description A git repository
+         */
+        repo: RepositoryWebhooks | null;
+        sha: string;
+        /** User */
+        user: SimpleUser | null;
+    };
+    /** Format: uri */
+    html_url: string;
+    id: number;
+    /** Format: uri */
+    issue_url: string;
+    labels: {
+        /** @description 6-character hex code, without the leading #, identifying the color */
+        color: string;
+        default: boolean;
+        description: string | null;
+        id: number;
+        /** @description The name of the label. */
+        name: string;
+        node_id: string;
+        /**
+         * Format: uri
+         * @description URL for the label
+         */
+        url: string;
+    }[];
+    locked: boolean;
+    /** @description Indicates whether maintainers can modify the pull request. */
+    maintainer_can_modify?: boolean;
+    merge_commit_sha: string | null;
+    mergeable?: boolean | null;
+    mergeable_state?: string;
+    merged?: boolean | null;
+    /** Format: date-time */
+    merged_at: string | null;
+    /** User */
+    merged_by?: SimpleUser | null;
+    /**
+     * Milestone
+     * @description A collection of related issues and pull requests.
+     */
+    milestone: {
+        /** Format: date-time */
+        closed_at: string | null;
+        closed_issues: number;
+        /** Format: date-time */
+        created_at: string;
+        /** User */
+        creator: SimpleUser | null;
+        description: string | null;
+        /** Format: date-time */
+        due_on: string | null;
+        /** Format: uri */
+        html_url: string;
+        id: number;
+        /** Format: uri */
+        labels_url: string;
+        node_id: string;
+        /** @description The number of the milestone. */
+        number: number;
+        open_issues: number;
+        /**
+         * @description The state of the milestone.
+         * @enum {string}
+         */
+        state: "open" | "closed";
+        /** @description The title of the milestone. */
+        title: string;
+        /** Format: date-time */
+        updated_at: string;
+        /** Format: uri */
+        url: string;
+    } | null;
+    node_id: string;
+    /** @description Number uniquely identifying the pull request within its repository. */
+    number: number;
+    /** Format: uri */
+    patch_url: string;
+    rebaseable?: boolean | null;
+    requested_reviewers: ((SimpleUser | null) | {
+        deleted?: boolean;
+        /** @description Description of the team */
+        description: string | null;
+        /** Format: uri */
+        html_url: string;
+        /** @description Unique identifier of the team */
+        id: number;
+        /** Format: uri-template */
+        members_url: string;
+        /** @description Name of the team */
+        name: string;
+        node_id: string;
+        parent?: {
+            /** @description Description of the team */
+            description: string | null;
+            /** Format: uri */
+            html_url: string;
+            /** @description Unique identifier of the team */
+            id: number;
+            /** Format: uri-template */
+            members_url: string;
+            /** @description Name of the team */
+            name: string;
+            node_id: string;
+            /** @description Permission that the team will have for its repositories */
+            permission: string;
+            /** @enum {string} */
+            privacy: "open" | "closed" | "secret";
+            /** Format: uri */
+            repositories_url: string;
+            slug: string;
+            /**
+             * Format: uri
+             * @description URL for the team
+             */
+            url: string;
+        } | null;
+        /** @description Permission that the team will have for its repositories */
+        permission: string;
+        /** @enum {string} */
+        privacy: "open" | "closed" | "secret";
+        /** Format: uri */
+        repositories_url: string;
+        slug: string;
+        /**
+         * Format: uri
+         * @description URL for the team
+         */
+        url: string;
+    })[];
+    requested_teams: {
+        deleted?: boolean;
+        /** @description Description of the team */
+        description?: string | null;
+        /** Format: uri */
+        html_url?: string;
+        /** @description Unique identifier of the team */
+        id: number;
+        /** Format: uri-template */
+        members_url?: string;
+        /** @description Name of the team */
+        name: string;
+        node_id?: string;
+        parent?: {
+            /** @description Description of the team */
+            description: string | null;
+            /** Format: uri */
+            html_url: string;
+            /** @description Unique identifier of the team */
+            id: number;
+            /** Format: uri-template */
+            members_url: string;
+            /** @description Name of the team */
+            name: string;
+            node_id: string;
+            /** @description Permission that the team will have for its repositories */
+            permission: string;
+            /** @enum {string} */
+            privacy: "open" | "closed" | "secret";
+            /** Format: uri */
+            repositories_url: string;
+            slug: string;
+            /**
+             * Format: uri
+             * @description URL for the team
+             */
+            url: string;
+        } | null;
+        /** @description Permission that the team will have for its repositories */
+        permission?: string;
+        /** @enum {string} */
+        privacy?: "open" | "closed" | "secret";
+        /** Format: uri */
+        repositories_url?: string;
+        slug?: string;
+        /**
+         * Format: uri
+         * @description URL for the team
+         */
+        url?: string;
+    }[];
+    /** Format: uri-template */
+    review_comment_url: string;
+    review_comments?: number;
+    /** Format: uri */
+    review_comments_url: string;
+    /**
+     * @description State of this Pull Request. Either `open` or `closed`.
+     * @enum {string}
+     */
+    state: "open" | "closed";
+    /** Format: uri */
+    statuses_url: string;
+    /** @description The title of the pull request. */
+    title: string;
+    /** Format: date-time */
+    updated_at: string;
+    /** Format: uri */
+    url: string;
+    /** User */
+    user: SimpleUser | null;
+}
