@@ -29,7 +29,7 @@ Converts GitHub webhooks to nicely formatted discord webhooks.
 | `deployment_status`               | ❌                    | ❌         |
 | `discussion`                      | ✅                    | ❌         |
 | `discussion_comment`              | ✅                    | ❌         |
-| `fork`                            | ✅                    | ❌         |
+| `fork`                            | ✅                    | ✅         |
 | `github_app_authorization`        | ❌                    | ❌         |
 | `gollum`                          | ❌                    | ❌         |
 | `installation`                    | ❌                    | ❌         |
@@ -61,7 +61,7 @@ Converts GitHub webhooks to nicely formatted discord webhooks.
 | `pull_request_review_comment`     | ✅                    | ❌         |
 | `pull_request_review`             | ✅                    | ❌         |
 | `pull_request_review_thread`      | ❌                    | ❌         |
-| `push`                            | ✅                    | ❌         |
+| `push`                            | ✅                    | ✅         |
 | `registry_package`                | ❌                    | ❌         |
 | `release`                         | ✅                    | ❌         |
 | `repository_advisory`             | ❌                    | ❌         |

@@ -6,6 +6,7 @@ import {IssueCommentTransformer} from "./transformers/issue-comment-transformer.
 import {WatchTransformer} from "./transformers/watch-transformer.ts";
 import {PushTransformer} from "./transformers/push-transformer.ts";
 import {EventTransformer} from "./event-transformer.ts";
+import {ForkTransformer} from "./transformers/fork-transformer.ts";
 
 type EventHandlers = {
     [K in WebhookKey]?: EventTransformer<Webhooks[K]>;
@@ -17,6 +18,7 @@ const transformersByEvent: EventHandlers = {
     issue_comment: new IssueCommentTransformer(),
     watch: new WatchTransformer(),
     push: new PushTransformer(),
+    fork: new ForkTransformer(),
 };
 
 export const transformContent = <T extends WebhookKey>(webhookEvent: IncomingWebhookData<T>): WebhookContent | undefined => {

@@ -134,6 +134,13 @@ const icons: IconOptions[] = [
         color: COLORS.muted.hex,
         source: 'assets',
     },
+
+    // Fork
+    {
+        name: 'fork',
+        icon: 'repo-forked',
+        color: COLORS.muted.hex,
+    },
 ];
 
 

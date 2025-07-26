@@ -29,4 +29,5 @@ export const EMOJIS = {
     commit_top: '<:gh_commit_top:1398392834159149056>',
     commit_center: '<:gh_commit_center:1398392832619970670>',
     commit_bottom: '<:gh_commit_bottom:1398433333788020868>',
+    fork: '<:gh_fork:1398749555201147020>',
 };

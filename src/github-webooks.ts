@@ -4,6 +4,7 @@ import {IssuesWebhook} from "./schemas/issues.ts";
 import {IssueCommentWebhook} from "./schemas/issue-comment.ts";
 import {PushWebhook} from "./schemas/push.ts";
 import { BaseWebhook } from "./schemas/base.ts";
+import {ForkWebhook} from "./schemas/fork.ts";
 
 export interface Webhooks {
     branch_protection_configuration: BaseWebhook;
@@ -24,7 +25,7 @@ export interface Webhooks {
     deployment_status: BaseWebhook;
     discussion: BaseWebhook;
     discussion_comment: BaseWebhook;
-    fork: BaseWebhook;
+    fork: ForkWebhook;
     github_app_authorization: BaseWebhook;
     gollum: BaseWebhook;
     installation: BaseWebhook;
