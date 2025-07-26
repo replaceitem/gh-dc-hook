@@ -9,10 +9,11 @@ export class IssueCommentTransformer extends EmbedTransformer<IssueCommentWebhoo
         if(webhook.action === 'created') {
             const linkedIssueNumber = mdLink(`#${webhook.issue.number}`, webhook.issue.html_url);
             const linkedComment = mdLink('comment', webhook.comment.html_url);
+            const isPr = !!webhook.issue.pull_request;
             return {
                 ...this.senderAsAuthor(webhook),
                 ...this.repositoryAsTitle(webhook),
-                description: `${EMOJIS.comment} \u00A0New ${linkedComment} on issue ${linkedIssueNumber}`,
+                description: `${EMOJIS.comment} \u00A0New ${linkedComment} on ${isPr ? 'pull request' : 'issue'} ${linkedIssueNumber}`,
                 color: COLORS.muted.int,
                 fields: [
                     {
