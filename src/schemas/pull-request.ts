@@ -1,5 +1,13 @@
 import {BaseSenderRepositoryWebhook} from "./base.ts";
-import {PullRequest, WebhooksLabel, WebhooksMilestone, WebhooksUser} from "./common.ts";
+import {
+    PullRequest,
+    SimpleUser,
+    WebhooksLabel,
+    WebhooksMilestone,
+    WebhooksTeam,
+    WebhooksUser,
+    WebhooksUserMannequin
+} from "./common.ts";
 
 
 export type PullRequestWebhook =
@@ -17,7 +25,13 @@ export type PullRequestWebhook =
     | PullRequestMilestonedWebhook
     | PullRequestOpenedWebhook
     | PullRequestReadyForReviewWebhook
-    | PullRequestReopenedWebhook;
+    | PullRequestReopenedWebhook
+    | PullRequestReviewRequestRemovedWebhook
+    | PullRequestReviewRequestedWebhook
+    | PullRequestSynchronizeWebhook
+    | PullRequestUnassignedWebhook
+    | PullRequestUnlabeledWebhook
+    | PullRequestUnlockedWebhook;
 
 export interface BasePullRequestWebhook extends BaseSenderRepositoryWebhook {
     number: number;
@@ -107,4 +121,39 @@ export interface PullRequestReadyForReviewWebhook extends BasePullRequestWebhook
 
 export interface PullRequestReopenedWebhook extends BasePullRequestWebhook {
     action: 'reopened';
+}
+
+type ReviewSubject = {
+    requested_reviewer: SimpleUser | null;
+} | {
+    requested_team: WebhooksTeam;
+};
+
+export type PullRequestReviewRequestRemovedWebhook = BasePullRequestWebhook & {
+    action: 'review_request_removed';
+} & ReviewSubject;
+
+export type PullRequestReviewRequestedWebhook = BasePullRequestWebhook & {
+    action: 'review_requested';
+} & ReviewSubject;
+
+export interface PullRequestSynchronizeWebhook extends BasePullRequestWebhook {
+    action: 'synchronize';
+    after: string;
+    before: string;
+}
+
+export interface PullRequestUnassignedWebhook extends BasePullRequestWebhook {
+    action: 'unassigned';
+    assignee: WebhooksUserMannequin;
+    sender: SimpleUser;
+}
+
+export interface PullRequestUnlabeledWebhook extends BasePullRequestWebhook {
+    action: 'unlabeled';
+    label?: WebhooksLabel;
+}
+
+export interface PullRequestUnlockedWebhook extends BasePullRequestWebhook {
+    action: 'unlocked';
 }

@@ -1868,3 +1868,54 @@ export interface PullRequest {
     /** User */
     user: SimpleUser | null;
 }
+export interface WebhooksTeam {
+    deleted?: boolean;
+    /** @description Description of the team */
+    description: string | null;
+    /** Format: uri */
+    html_url: string;
+    /** @description Unique identifier of the team */
+    id: number;
+    /** Format: uri-template */
+    members_url: string;
+    /** @description Name of the team */
+    name: string;
+    node_id: string;
+    parent?: {
+        /** @description Description of the team */
+        description: string | null;
+        /** Format: uri */
+        html_url: string;
+        /** @description Unique identifier of the team */
+        id: number;
+        /** Format: uri-template */
+        members_url: string;
+        /** @description Name of the team */
+        name: string;
+        node_id: string;
+        /** @description Permission that the team will have for its repositories */
+        permission: string;
+        /** @enum {string} */
+        privacy: "open" | "closed" | "secret";
+        /** Format: uri */
+        repositories_url: string;
+        slug: string;
+        /**
+         * Format: uri
+         * @description URL for the team
+         */
+        url: string;
+    } | null;
+    /** @description Permission that the team will have for its repositories */
+    permission: string;
+    /** @enum {string} */
+    privacy: "open" | "closed" | "secret";
+    /** Format: uri */
+    repositories_url: string;
+    slug: string;
+    /**
+     * Format: uri
+     * @description URL for the team
+     */
+    url: string;
+};
