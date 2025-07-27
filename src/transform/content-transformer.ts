@@ -8,6 +8,7 @@ import {PushTransformer} from "./transformers/push-transformer.ts";
 import {EventTransformer} from "./event-transformer.ts";
 import {ForkTransformer} from "./transformers/fork-transformer.ts";
 import {PullRequestTransformer} from "./transformers/pull-request-transformer.ts";
+import {PullRequestReviewTransformer} from "./transformers/pull-request-review-transformer.ts";
 
 type EventHandlers = {
     [K in WebhookKey]?: EventTransformer<Webhooks[K]>;
@@ -21,6 +22,7 @@ const transformersByEvent: EventHandlers = {
     push: new PushTransformer(),
     fork: new ForkTransformer(),
     pull_request: new PullRequestTransformer(),
+    pull_request_review: new PullRequestReviewTransformer(),
 };
 
 export const transformContent = <T extends WebhookKey>(webhookEvent: IncomingWebhookData<T>): WebhookContent | undefined => {

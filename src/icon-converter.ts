@@ -168,6 +168,18 @@ const icons: IconOptions[] = [
         icon: 'git-merge',
         color: COLORS.done.hex,
     },
+
+    // Pull request reviews
+    {
+        name: 'review-approve',
+        icon: 'check',
+        color: COLORS.success.hex,
+    },
+    {
+        name: 'review-change',
+        icon: 'file-diff',
+        color: COLORS.danger.hex,
+    },
 ];
 
 

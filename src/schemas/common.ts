@@ -1868,6 +1868,44 @@ export interface PullRequest {
     /** User */
     user: SimpleUser | null;
 }
+
+export interface WebhooksPullRequestReview {
+    _links: {
+        /** Link */
+        html: {
+            /** Format: uri-template */
+            href: string;
+        };
+        /** Link */
+        pull_request: {
+            /** Format: uri-template */
+            href: string;
+        };
+    };
+    /**
+     * AuthorAssociation
+     * @description How the author is associated with the repository.
+     * @enum {string}
+     */
+    author_association: "COLLABORATOR" | "CONTRIBUTOR" | "FIRST_TIMER" | "FIRST_TIME_CONTRIBUTOR" | "MANNEQUIN" | "MEMBER" | "NONE" | "OWNER";
+    /** @description The text of the review. */
+    body: string | null;
+    /** @description A commit SHA for the review. */
+    commit_id: string;
+    /** Format: uri */
+    html_url: string;
+    /** @description Unique identifier of the review */
+    id: number;
+    node_id: string;
+    /** Format: uri */
+    pull_request_url: string;
+    state: "dismissed" | "approved" | "changes_requested" | "commented";
+    /** Format: date-time */
+    submitted_at: string | null;
+    /** User */
+    user: SimpleUser | null;
+}
+
 export interface WebhooksTeam {
     deleted?: boolean;
     /** @description Description of the team */

@@ -35,4 +35,6 @@ export const EMOJIS = {
     pr_draft: '<:gh_pr_draft:1398758491723665449>',
     pr_close: '<:gh_pr_close:1398758489676840986>',
     pr_merge: '<:gh_pr_merge:1398758487919431762>',
+    review_change: '<:gh_review_change:1399006166771695636>',
+    review_approve: '<:gh_review_approve:1399006168239702096>',
 };

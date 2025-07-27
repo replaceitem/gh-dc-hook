@@ -18,5 +18,5 @@ const loadSamplePayload = async <T extends WebhookKey>(file: string) => {
     return JSON.parse(json) as IncomingWebhookData<T>;
 };
 
-const payload = await loadSamplePayload('pull_request/opened');
+const payload = await loadSamplePayload('pull_request_review/submitted_commented');
 await onWebhookEvent(payload, credentials);
