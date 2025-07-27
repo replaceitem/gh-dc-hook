@@ -1956,4 +1956,152 @@ export interface WebhooksTeam {
      * @description URL for the team
      */
     url: string;
-};
+}
+
+export interface WebhooksRelease {
+    assets: {
+        /** Format: uri */
+        browser_download_url: string;
+        content_type: string;
+        /** Format: date-time */
+        created_at: string;
+        download_count: number;
+        id: number;
+        label: string | null;
+        /** @description The file name of the asset. */
+        name: string;
+        node_id: string;
+        size: number;
+        digest: string | null;
+        /**
+         * @description State of the release asset.
+         * @enum {string}
+         */
+        state: "uploaded";
+        /** Format: date-time */
+        updated_at: string;
+        /** User */
+        uploader?: {
+            /** Format: uri */
+            avatar_url?: string;
+            deleted?: boolean;
+            email?: string | null;
+            /** Format: uri-template */
+            events_url?: string;
+            /** Format: uri */
+            followers_url?: string;
+            /** Format: uri-template */
+            following_url?: string;
+            /** Format: uri-template */
+            gists_url?: string;
+            gravatar_id?: string;
+            /** Format: uri */
+            html_url?: string;
+            id: number;
+            login: string;
+            name?: string;
+            node_id?: string;
+            /** Format: uri */
+            organizations_url?: string;
+            /** Format: uri */
+            received_events_url?: string;
+            /** Format: uri */
+            repos_url?: string;
+            site_admin?: boolean;
+            /** Format: uri-template */
+            starred_url?: string;
+            /** Format: uri */
+            subscriptions_url?: string;
+            /** @enum {string} */
+            type?: "Bot" | "User" | "Organization";
+            /** Format: uri */
+            url?: string;
+        } | null;
+        /** Format: uri */
+        url: string;
+    }[];
+    /** Format: uri */
+    assets_url: string;
+    /** User */
+    author: {
+        /** Format: uri */
+        avatar_url?: string;
+        deleted?: boolean;
+        email?: string | null;
+        /** Format: uri-template */
+        events_url?: string;
+        /** Format: uri */
+        followers_url?: string;
+        /** Format: uri-template */
+        following_url?: string;
+        /** Format: uri-template */
+        gists_url?: string;
+        gravatar_id?: string;
+        /** Format: uri */
+        html_url?: string;
+        id: number;
+        login: string;
+        name?: string;
+        node_id?: string;
+        /** Format: uri */
+        organizations_url?: string;
+        /** Format: uri */
+        received_events_url?: string;
+        /** Format: uri */
+        repos_url?: string;
+        site_admin?: boolean;
+        /** Format: uri-template */
+        starred_url?: string;
+        /** Format: uri */
+        subscriptions_url?: string;
+        /** @enum {string} */
+        type?: "Bot" | "User" | "Organization";
+        /** Format: uri */
+        url?: string;
+        user_view_type?: string;
+    } | null;
+    body: string | null;
+    /** Format: date-time */
+    created_at: string | null;
+    /** Format: uri */
+    discussion_url?: string;
+    /** @description Whether the release is a draft or published */
+    draft: boolean;
+    /** Format: uri */
+    html_url: string;
+    id: number;
+    /** @description Whether or not the release is immutable. */
+    immutable: boolean;
+    name: string | null;
+    node_id: string;
+    /** @description Whether the release is identified as a prerelease or a full release. */
+    prerelease: boolean;
+    /** Format: date-time */
+    published_at: string | null;
+    /** Reactions */
+    reactions?: {
+        "+1": number;
+        "-1": number;
+        confused: number;
+        eyes: number;
+        heart: number;
+        hooray: number;
+        laugh: number;
+        rocket: number;
+        total_count: number;
+        /** Format: uri */
+        url: string;
+    };
+    /** @description The name of the tag. */
+    tag_name: string;
+    /** Format: uri */
+    tarball_url: string | null;
+    /** @description Specifies the commitish value that determines where the Git tag is created from. */
+    target_commitish: string;
+    /** Format: uri-template */
+    upload_url: string;
+    /** Format: uri */
+    url: string;
+    /** Format: uri */
+    zipball_url: string | null;
+}

@@ -10,6 +10,7 @@ import {ForkTransformer} from "./transformers/fork-transformer.ts";
 import {PullRequestTransformer} from "./transformers/pull-request-transformer.ts";
 import {PullRequestReviewTransformer} from "./transformers/pull-request-review-transformer.ts";
 import {PublicTransformer} from "./transformers/public-transformer.ts";
+import {ReleaseTransformer} from "./transformers/release-transformer.ts";
 
 type EventHandlers = {
     [K in WebhookKey]?: EventTransformer<Webhooks[K]>;
@@ -25,6 +26,7 @@ const transformersByEvent: EventHandlers = {
     pull_request: new PullRequestTransformer(),
     pull_request_review: new PullRequestReviewTransformer(),
     public: new PublicTransformer(),
+    release: new ReleaseTransformer(),
 };
 
 export const transformContent = <T extends WebhookKey>(webhookEvent: IncomingWebhookData<T>): WebhookContent | undefined => {

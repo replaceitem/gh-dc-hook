@@ -187,6 +187,18 @@ const icons: IconOptions[] = [
         icon: 'unlock',
         color: COLORS.muted.hex,
     },
+
+    // Release
+    {
+        name: 'release',
+        icon: 'tag',
+        color: COLORS.success.hex,
+    },
+    {
+        name: 'pre-release',
+        icon: 'tag',
+        color: COLORS.attention.hex,
+    },
 ];
 
 

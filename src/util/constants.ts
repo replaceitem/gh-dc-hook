@@ -12,6 +12,7 @@ export const COLORS = {
     success: color('#3FB950'),
     done: color('#AD7DF8'),
     danger: color('#F85149'),
+    attention: color('#D29922'),
 }
 
 
@@ -38,4 +39,6 @@ export const EMOJIS = {
     review_change: '<:gh_review_change:1399006166771695636>',
     review_approve: '<:gh_review_approve:1399006168239702096>',
     public: '<:gh_public:1399018418786533427>',
+    release: '<:gh_release:1399066988252499969>',
+    pre_release: '<:gh_pre_release:1399066986939416730>',
 };
