@@ -1,7 +1,7 @@
 import {EmbedTransformer} from "../embed-transformer.ts";
 import {SchemaRichEmbed} from "../../openapi/discord-schema.ts";
 import {COLORS, EMOJIS} from "../../util/constants.ts";
-import {mdLink} from "../../util/markdown-util.ts";
+import {cutLengthEllipsis, mdLink} from "../../util/markdown-util.ts";
 import {IssuesWebhook} from "../../schemas/issues.ts";
 
 
@@ -16,8 +16,8 @@ export class IssuesTransformer extends EmbedTransformer<IssuesWebhook> {
                 description: `${this.getStateIcon(webhook)} \u00A0${linkedIssueNumber} ${this.getStateText(webhook)}`,
                 fields: [
                     {
-                        name: webhook.issue.title,
-                        value: webhook.action === 'opened' ? webhook.issue.body ?? '' : '',
+                        name: cutLengthEllipsis(webhook.issue.title, 100),
+                        value: webhook.action === 'opened' ? cutLengthEllipsis(webhook.issue.body ?? '', 1000) : '',
                     }
                 ]
             }

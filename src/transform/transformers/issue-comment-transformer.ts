@@ -1,7 +1,7 @@
 import {EmbedTransformer} from "../embed-transformer.ts";
 import {SchemaRichEmbed} from "../../openapi/discord-schema.ts";
 import {COLORS, EMOJIS} from "../../util/constants.ts";
-import {mdLink} from "../../util/markdown-util.ts";
+import {cutLengthEllipsis, mdLink} from "../../util/markdown-util.ts";
 import {IssueCommentWebhook} from "../../schemas/issue-comment.ts";
 
 export class IssueCommentTransformer extends EmbedTransformer<IssueCommentWebhook> {
@@ -17,8 +17,8 @@ export class IssueCommentTransformer extends EmbedTransformer<IssueCommentWebhoo
                 color: COLORS.muted.int,
                 fields: [
                     {
-                        name: webhook.issue.title,
-                        value: webhook.comment.body,
+                        name: cutLengthEllipsis(webhook.issue.title, 100),
+                        value: cutLengthEllipsis(webhook.comment.body, 1000),
                     }
                 ]
             }
