@@ -41,4 +41,6 @@ export const EMOJIS = {
     public: '<:gh_public:1399018418786533427>',
     release: '<:gh_release:1399066988252499969>',
     pre_release: '<:gh_pre_release:1399066986939416730>',
+    branch: '<:gh_branch:1399127375261995039>',
+    tag: '<:gh_tag:1399127373810499736>',
 };

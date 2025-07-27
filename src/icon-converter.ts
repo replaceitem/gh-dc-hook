@@ -199,6 +199,18 @@ const icons: IconOptions[] = [
         icon: 'tag',
         color: COLORS.attention.hex,
     },
+
+    // Create
+    {
+        name: 'branch',
+        icon: 'git-branch',
+        color: COLORS.muted.hex,
+    },
+    {
+        name: 'tag',
+        icon: 'tag',
+        color: COLORS.muted.hex,
+    },
 ];
 
 

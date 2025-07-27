@@ -17,7 +17,7 @@ Converts GitHub webhooks to nicely formatted discord webhooks.
 | `check_suite`                     | ✅                    | ❌         |
 | `code_scanning_alert`             | ❌                    | ❌         |
 | `commit_comment`                  | ✅                    | ❌         |
-| `create`                          | ✅                    | ❌         |
+| `create`                          | ✅                    | ✅         |
 | `custom_property`                 | ❌                    | ❌         |
 | `custom_property_values`          | ❌                    | ❌         |
 | `delete`                          | ✅                    | ❌         |

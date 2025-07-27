@@ -11,6 +11,7 @@ import {PullRequestTransformer} from "./transformers/pull-request-transformer.ts
 import {PullRequestReviewTransformer} from "./transformers/pull-request-review-transformer.ts";
 import {PublicTransformer} from "./transformers/public-transformer.ts";
 import {ReleaseTransformer} from "./transformers/release-transformer.ts";
+import {CreateTransformer} from "./transformers/create-transformer.ts";
 
 type EventHandlers = {
     [K in WebhookKey]?: EventTransformer<Webhooks[K]>;
@@ -27,6 +28,7 @@ const transformersByEvent: EventHandlers = {
     pull_request_review: new PullRequestReviewTransformer(),
     public: new PublicTransformer(),
     release: new ReleaseTransformer(),
+    create: new CreateTransformer(),
 };
 
 export const transformContent = <T extends WebhookKey>(webhookEvent: IncomingWebhookData<T>): WebhookContent | undefined => {
