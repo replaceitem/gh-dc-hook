@@ -180,6 +180,13 @@ const icons: IconOptions[] = [
         icon: 'file-diff',
         color: COLORS.danger.hex,
     },
+
+    // Public
+    {
+        name: 'public',
+        icon: 'unlock',
+        color: COLORS.muted.hex,
+    },
 ];
 
 
