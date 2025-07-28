@@ -1,8 +1,9 @@
 {
   "tasks": {
-    "main": "deno run --allow-net src/main.ts",
+    "main": "deno run --env-file --allow-net --allow-env --allow-write src/main.ts",
     "gen-api": "deno run --allow-net --allow-env --allow-sys --allow-read --allow-write src/gen-api.ts",
-    "test-payloads": "deno run --env-file --allow-env --allow-net src/test-payloads.ts"
+    "test-payloads": "deno run --env-file --allow-env --allow-net --allow-read src/test-payloads.ts",
+    "icon-converter": "deno run --allow-net --allow-write --allow-read --allow-env --allow-ffi src/icon-converter.ts"
   },
   "imports": {
     "openapi-typescript": "npm:openapi-typescript@^7.8.0",
