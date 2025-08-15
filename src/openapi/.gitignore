@@ -1,0 +1,4 @@
+# The github schema file is HUGE and brings TS autocompletion to a crawl in WebStorm.
+# Thats why all relevant schemas for the webhooks were extracted from this to src/schemas.
+# The generated github-schema.ts is only for reference (copy/pasting).
+github-schema.ts
