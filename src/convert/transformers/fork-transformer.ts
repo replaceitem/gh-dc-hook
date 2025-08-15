@@ -7,8 +7,8 @@ import {mdLink} from "../../util/markdown-util.ts";
 export class ForkTransformer extends EmbedTransformer<ForkWebhook> {
     override transformEmbed(webhook: ForkWebhook): SchemaRichEmbed | undefined {
         return {
-            ...this.senderAsAuthor(webhook),
-            ...this.repositoryAsTitle(webhook),
+            ...EmbedTransformer.senderAsAuthor(webhook),
+            ...EmbedTransformer.repositoryAsTitle(webhook),
             color: COLORS.success.int,
             description: `${EMOJIS.fork} \u00A0Fork created: ${mdLink(webhook.forkee.full_name, webhook.forkee.html_url)}`,
         }

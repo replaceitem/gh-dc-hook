@@ -9,8 +9,8 @@ export class CreateTransformer extends EmbedTransformer<CreateWebhook> {
         const isBranch = webhook.ref_type === 'branch';
         const refLink = mdLink(webhook.ref, `${webhook.repository.html_url}/tree/${webhook.ref}`);
         return {
-            ...this.senderAsAuthor(webhook),
-            ...this.repositoryAsTitle(webhook),
+            ...EmbedTransformer.senderAsAuthor(webhook),
+            ...EmbedTransformer.repositoryAsTitle(webhook),
             color: COLORS.muted.int,
             description: `${isBranch ? EMOJIS.branch : EMOJIS.tag} \u00A0${isBranch ? 'Branch' : 'Tag'} ${refLink} created`,
         }

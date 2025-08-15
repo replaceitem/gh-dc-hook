@@ -14,8 +14,8 @@ export class PushTransformer extends EmbedTransformer<PushWebhook> {
         const compareLink = mdLink(`${webhook.commits.length} ${webhook.commits.length === 1 ? 'commit' : 'commits'}`, webhook.compare);
         const commitLog = this.createCommitLog(webhook);
         return {
-            ...this.senderAsAuthor(webhook),
-            ...this.repositoryAsTitle(webhook),
+            ...EmbedTransformer.senderAsAuthor(webhook),
+            ...EmbedTransformer.repositoryAsTitle(webhook),
             color: webhook.forced ? COLORS.danger.int : COLORS.muted.int,
             description: `${webhook.forced ? EMOJIS.force_push : EMOJIS.push} \u00A0${webhook.forced ? 'Force-pushed' : 'Pushed'} ${compareLink} to ${this.getRefLink(webhook)}\n\n${commitLog}`,
         }

@@ -7,8 +7,8 @@ export class StarTransformer extends EmbedTransformer<StarWebhook> {
     override transformEmbed(webhook: StarWebhook): SchemaRichEmbed {
         const added = webhook.action === 'created';
         return {
-            ...this.senderAsAuthor(webhook),
-            ...this.repositoryAsTitle(webhook),
+            ...EmbedTransformer.senderAsAuthor(webhook),
+            ...EmbedTransformer.repositoryAsTitle(webhook),
             color: added ? COLORS.star.int : COLORS.muted.int,
             description: added ?
                 `${EMOJIS.star} New star added` :

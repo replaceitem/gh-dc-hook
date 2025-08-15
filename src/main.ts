@@ -1,5 +1,6 @@
-import {onWebhookEvent} from "./webhook-event.ts";
 import {logPayload} from "./payload-logger.ts";
+import {onWebhookEvent} from "./webhook-event.ts";
+import {IncomingWebhookData} from "./github-webooks.ts";
 
 const WEBHOOK_ROUTE = new URLPattern({ pathname: "/api/webhooks/:id/:token" });
 
@@ -28,7 +29,7 @@ Deno.serve({
         return await onWebhookEvent({
             event: eventType,
             data,
-        }, {
+        } as IncomingWebhookData, {
             id, token
         });
     }

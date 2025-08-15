@@ -10,8 +10,8 @@ export class IssuesTransformer extends EmbedTransformer<IssuesWebhook> {
         if(webhook.action == 'opened' || webhook.action == 'reopened' || webhook.action == 'closed') {
             const linkedIssueNumber = mdLink(`#${webhook.issue.number}`, webhook.issue.html_url);
             return {
-                ...this.senderAsAuthor(webhook),
-                ...this.repositoryAsTitle(webhook),
+                ...EmbedTransformer.senderAsAuthor(webhook),
+                ...EmbedTransformer.repositoryAsTitle(webhook),
                 color: webhook.action === 'closed' ? (webhook.issue.state_reason === 'completed' ? COLORS.done.int : COLORS.muted.int) : COLORS.success.int,
                 description: `${this.getStateIcon(webhook)} \u00A0${linkedIssueNumber} ${this.getStateText(webhook)}`,
                 fields: [
@@ -25,12 +25,12 @@ export class IssuesTransformer extends EmbedTransformer<IssuesWebhook> {
     }
 
     private getStateIcon(webhook: IssuesWebhook): string | undefined {
-        if(webhook.action === 'opened') return EMOJIS.issueOpen;
-        if(webhook.action === 'reopened') return EMOJIS.issueReopen;
+        if(webhook.action === 'opened') return EMOJIS.issue_open;
+        if(webhook.action === 'reopened') return EMOJIS.issue_reopen;
         if(webhook.action === 'closed') {
-            return webhook.issue.state_reason === 'completed' ? EMOJIS.issueDone : EMOJIS.issueSkip;
+            return webhook.issue.state_reason === 'completed' ? EMOJIS.issue_done : EMOJIS.issue_skip;
         }
-        return EMOJIS.issueOpen;
+        return EMOJIS.issue_open;
     }
 
     private getStateText(webhook: IssuesWebhook) {

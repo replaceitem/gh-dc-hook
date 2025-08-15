@@ -13,8 +13,8 @@ export class PullRequestTransformer extends EmbedTransformer<PullRequestWebhook>
         const prLink = mdLink(`#${webhook.number}`, webhook.pull_request.html_url);
         const color = this.getStateColor(webhook);
         return {
-            ...this.senderAsAuthor(webhook),
-            ...this.repositoryAsTitle(webhook),
+            ...EmbedTransformer.senderAsAuthor(webhook),
+            ...EmbedTransformer.repositoryAsTitle(webhook),
             color: color,
             description: `${icon} \u00A0${prLink} ${text}`,
             fields: [

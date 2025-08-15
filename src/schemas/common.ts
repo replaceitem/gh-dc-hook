@@ -2105,3 +2105,455 @@ export interface WebhooksRelease {
     /** Format: uri */
     zipball_url: string | null;
 }
+
+export interface WebhooksWorkflow {
+    /** Format: uri */
+    badge_url: string;
+    /** Format: date-time */
+    created_at: string;
+    /** Format: uri */
+    html_url: string;
+    id: number;
+    name: string;
+    node_id: string;
+    path: string;
+    state: string;
+    /** Format: date-time */
+    updated_at: string;
+    /** Format: uri */
+    url: string;
+}
+
+export interface WebhooksWorkflowRun {
+    /** User */
+    actor: SimpleUser | null;
+    /** Format: uri */
+    artifacts_url: string;
+    /** Format: uri */
+    cancel_url: string;
+    check_suite_id: number;
+    check_suite_node_id: string;
+    /** Format: uri */
+    check_suite_url: string;
+    /** @enum {string|null} */
+    conclusion: "action_required" | "cancelled" | "failure" | "neutral" | "skipped" | "stale" | "success" | "timed_out" | "startup_failure" | null;
+    /** Format: date-time */
+    created_at: string;
+    event: string;
+    head_branch: string | null;
+    /** SimpleCommit */
+    head_commit: {
+        /**
+         * Committer
+         * @description Metaproperties for Git author/committer information.
+         */
+        author: {
+            /** Format: date-time */
+            date ? : string;
+            /** Format: email */
+            email: string | null;
+            /** @description The git author's name. */
+            name: string;
+            username ? : string;
+        }
+        ;
+        /**
+         * Committer
+         * @description Metaproperties for Git author/committer information.
+         */
+        committer: {
+            /** Format: date-time */
+            date ? : string;
+            /** Format: email */
+            email: string | null;
+            /** @description The git author's name. */
+            name: string;
+            username ? : string;
+        }
+        ;
+        id: string;
+        message: string;
+        timestamp: string;
+        tree_id: string;
+    }
+    ;
+    /** Repository Lite */
+    head_repository: {
+        /** Format: uri-template */
+        archive_url: string;
+        /** Format: uri-template */
+        assignees_url: string;
+        /** Format: uri-template */
+        blobs_url: string;
+        /** Format: uri-template */
+        branches_url: string;
+        /** Format: uri-template */
+        collaborators_url: string;
+        /** Format: uri-template */
+        comments_url: string;
+        /** Format: uri-template */
+        commits_url: string;
+        /** Format: uri-template */
+        compare_url: string;
+        /** Format: uri-template */
+        contents_url: string;
+        /** Format: uri */
+        contributors_url: string;
+        /** Format: uri */
+        deployments_url: string;
+        description: string | null;
+        /** Format: uri */
+        downloads_url: string;
+        /** Format: uri */
+        events_url: string;
+        fork: boolean;
+        /** Format: uri */
+        forks_url: string;
+        full_name: string;
+        /** Format: uri-template */
+        git_commits_url: string;
+        /** Format: uri-template */
+        git_refs_url: string;
+        /** Format: uri-template */
+        git_tags_url: string;
+        /** Format: uri */
+        hooks_url: string;
+        /** Format: uri */
+        html_url: string;
+        /** @description Unique identifier of the repository */
+        id: number;
+        /** Format: uri-template */
+        issue_comment_url: string;
+        /** Format: uri-template */
+        issue_events_url: string;
+        /** Format: uri-template */
+        issues_url: string;
+        /** Format: uri-template */
+        keys_url: string;
+        /** Format: uri-template */
+        labels_url: string;
+        /** Format: uri */
+        languages_url: string;
+        /** Format: uri */
+        merges_url: string;
+        /** Format: uri-template */
+        milestones_url: string;
+        /** @description The name of the repository. */
+        name: string;
+        node_id: string;
+        /** Format: uri-template */
+        notifications_url: string;
+        /** User */
+        owner: SimpleUser | null;
+        /** @description Whether the repository is private or public. */
+        private:
+            boolean;
+        /** Format: uri-template */
+        pulls_url: string;
+        /** Format: uri-template */
+        releases_url: string;
+        /** Format: uri */
+        stargazers_url: string;
+        /** Format: uri-template */
+        statuses_url: string;
+        /** Format: uri */
+        subscribers_url: string;
+        /** Format: uri */
+        subscription_url: string;
+        /** Format: uri */
+        tags_url: string;
+        /** Format: uri */
+        teams_url: string;
+        /** Format: uri-template */
+        trees_url: string;
+        /** Format: uri */
+        url: string;
+    }
+    ;
+    head_sha: string;
+    /** Format: uri */
+    html_url: string;
+    id: number;
+    /** Format: uri */
+    jobs_url: string;
+    /** Format: uri */
+    logs_url: string;
+    name: string | null;
+    node_id: string;
+    path: string;
+    /** Format: uri */
+    previous_attempt_url: string | null;
+    pull_requests: ({
+        base: {
+            ref: string;
+            /** Repo Ref */
+            repo: {
+                id: number;
+                name: string;
+                /** Format: uri */
+                url: string;
+            };
+            sha: string;
+        };
+        head: {
+            ref: string;
+            /** Repo Ref */
+            repo: {
+                id: number;
+                name: string;
+                /** Format: uri */
+                url: string;
+            };
+            sha: string;
+        };
+        id: number;
+        number: number;
+        /** Format: uri */
+        url: string;
+    } | null)[];
+    referenced_workflows ? : {
+        path: string;
+        ref? : string;
+        sha: string;
+    }[] | null;
+    /** Repository Lite */
+    repository: {
+        /** Format: uri-template */
+        archive_url: string;
+        /** Format: uri-template */
+        assignees_url: string;
+        /** Format: uri-template */
+        blobs_url: string;
+        /** Format: uri-template */
+        branches_url: string;
+        /** Format: uri-template */
+        collaborators_url: string;
+        /** Format: uri-template */
+        comments_url: string;
+        /** Format: uri-template */
+        commits_url: string;
+        /** Format: uri-template */
+        compare_url: string;
+        /** Format: uri-template */
+        contents_url: string;
+        /** Format: uri */
+        contributors_url: string;
+        /** Format: uri */
+        deployments_url: string;
+        description: string | null;
+        /** Format: uri */
+        downloads_url: string;
+        /** Format: uri */
+        events_url: string;
+        fork: boolean;
+        /** Format: uri */
+        forks_url: string;
+        full_name: string;
+        /** Format: uri-template */
+        git_commits_url: string;
+        /** Format: uri-template */
+        git_refs_url: string;
+        /** Format: uri-template */
+        git_tags_url: string;
+        /** Format: uri */
+        hooks_url: string;
+        /** Format: uri */
+        html_url: string;
+        /** @description Unique identifier of the repository */
+        id: number;
+        /** Format: uri-template */
+        issue_comment_url: string;
+        /** Format: uri-template */
+        issue_events_url: string;
+        /** Format: uri-template */
+        issues_url: string;
+        /** Format: uri-template */
+        keys_url: string;
+        /** Format: uri-template */
+        labels_url: string;
+        /** Format: uri */
+        languages_url: string;
+        /** Format: uri */
+        merges_url: string;
+        /** Format: uri-template */
+        milestones_url: string;
+        /** @description The name of the repository. */
+        name: string;
+        node_id: string;
+        /** Format: uri-template */
+        notifications_url: string;
+        /** User */
+        owner: SimpleUser | null;
+        /** @description Whether the repository is private or public. */
+        private:
+            boolean;
+        /** Format: uri-template */
+        pulls_url: string;
+        /** Format: uri-template */
+        releases_url: string;
+        /** Format: uri */
+        stargazers_url: string;
+        /** Format: uri-template */
+        statuses_url: string;
+        /** Format: uri */
+        subscribers_url: string;
+        /** Format: uri */
+        subscription_url: string;
+        /** Format: uri */
+        tags_url: string;
+        /** Format: uri */
+        teams_url: string;
+        /** Format: uri-template */
+        trees_url: string;
+        /** Format: uri */
+        url: string;
+    }
+    ;
+    /** Format: uri */
+    rerun_url: string;
+    run_attempt: number;
+    run_number: number;
+    /** Format: date-time */
+    run_started_at: string;
+    /** @enum {string} */
+    status: "requested" | "in_progress" | "completed" | "queued" | "pending" | "waiting";
+    /** User */
+    triggering_actor: SimpleUser | null;
+    /** Format: date-time */
+    updated_at: string;
+    /** Format: uri */
+    url: string;
+    workflow_id: number;
+    /** Format: uri */
+    workflow_url: string;
+    /**
+     * @description The event-specific title associated with the run or the run-name if set, or the value of `run-name` if it is set in the workflow.
+     * @example Simple Workflow
+     */
+    display_title ? : string;
+}
+
+export interface Deployment {
+    /**
+     * Format: uri
+     * @example https://api.github.com/repos/octocat/example/deployments/1
+     */
+    url: string;
+    /**
+     * Format: int64
+     * @description Unique identifier of the deployment
+     * @example 42
+     */
+    id: number;
+    /** @example MDEwOkRlcGxveW1lbnQx */
+    node_id: string;
+    /** @example a84d88e7554fc1fa21bcbc4efae3c782a70d2b9d */
+    sha: string;
+    /**
+     * @description The ref to deploy. This can be a branch, tag, or sha.
+     * @example topic-branch
+     */
+    ref: string;
+    /**
+     * @description Parameter to specify a task to execute
+     * @example deploy
+     */
+    task: string;
+    payload: {
+        [key: string]: unknown;
+    } | string;
+    /** @example staging */
+    original_environment?: string;
+    /**
+     * @description Name for the target deployment environment.
+     * @example production
+     */
+    environment: string;
+    /** @example Deploy request from hubot */
+    description: string | null;
+    creator: SimpleUser | null;
+    /**
+     * Format: date-time
+     * @example 2012-07-20T01:19:13Z
+     */
+    created_at: string;
+    /**
+     * Format: date-time
+     * @example 2012-07-20T01:19:13Z
+     */
+    updated_at: string;
+    /**
+     * Format: uri
+     * @example https://api.github.com/repos/octocat/example/deployments/1/statuses
+     */
+    statuses_url: string;
+    /**
+     * Format: uri
+     * @example https://api.github.com/repos/octocat/example
+     */
+    repository_url: string;
+    /**
+     * @description Specifies if the given environment is will no longer exist at some point in the future. Default: false.
+     * @example true
+     */
+    transient_environment?: boolean;
+    /**
+     * @description Specifies if the given environment is one that end-users directly interact with. Default: false.
+     * @example true
+     */
+    production_environment?: boolean;
+    performed_via_github_app?: Integration | null;
+}
+
+
+export interface WebhooksWorkflowJob {
+    /** Format: uri */
+    check_run_url: string;
+    completed_at: string | null;
+    /** @enum {string|null} */
+    conclusion: "success" | "failure" | null | "skipped" | "cancelled" | "action_required" | "neutral" | "timed_out";
+    /** @description The time that the job created. */
+    created_at: string;
+    head_sha: string;
+    /** Format: uri */
+    html_url: string;
+    id: number;
+    /** @description Custom labels for the job. Specified by the [`"runs-on"` attribute](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on) in the workflow YAML. */
+    labels: string[];
+    name: string;
+    node_id: string;
+    run_attempt: number;
+    run_id: number;
+    /** Format: uri */
+    run_url: string;
+    /** @description The ID of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`. */
+    runner_group_id: number | null;
+    /** @description The name of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`. */
+    runner_group_name: string | null;
+    /** @description The ID of the runner that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`. */
+    runner_id: number | null;
+    /** @description The name of the runner that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`. */
+    runner_name: string | null;
+    started_at: string;
+    /**
+     * @description The current status of the job. Can be `queued`, `in_progress`, `waiting`, or `completed`.
+     * @enum {string}
+     */
+    status: "queued" | "in_progress" | "completed" | "waiting";
+    /** @description The name of the current branch. */
+    head_branch: string | null;
+    /** @description The name of the workflow. */
+    workflow_name: string | null;
+    steps: {
+        completed_at: string | null;
+        /** @enum {string|null} */
+        conclusion: "failure" | "skipped" | "success" | "cancelled" | null;
+        name: string;
+        number: number;
+        started_at: string | null;
+        /** @enum {string} */
+        status: "in_progress" | "completed" | "queued";
+    }[];
+    /** Format: uri */
+    url: string;
+}

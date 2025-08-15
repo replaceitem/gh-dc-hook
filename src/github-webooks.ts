@@ -5,6 +5,8 @@ import {IssueCommentWebhook} from "./schemas/issue-comment.ts";
 import {PushWebhook} from "./schemas/push.ts";
 import { BaseWebhook } from "./schemas/base.ts";
 import {ForkWebhook} from "./schemas/fork.ts";
+import {WorkflowJobWebhook} from "./schemas/workflow-job.ts";
+import {WorkflowRunWebhook} from "./schemas/workflow-run.ts";
 
 export interface Webhooks {
     branch_protection_configuration: BaseWebhook;
@@ -79,8 +81,8 @@ export interface Webhooks {
     team: BaseWebhook;
     watch: WatchWebhook;
     workflow_dispatch: BaseWebhook;
-    workflow_job: BaseWebhook;
-    workflow_run: BaseWebhook;
+    workflow_job: WorkflowJobWebhook;
+    workflow_run: WorkflowRunWebhook;
 }
 
 export type WebhookKey = keyof Webhooks;

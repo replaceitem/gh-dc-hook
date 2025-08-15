@@ -6,8 +6,8 @@ import {WatchWebhook} from "../../schemas/watch.ts";
 export class WatchTransformer extends EmbedTransformer<WatchWebhook> {
     override transformEmbed(webhook: WatchWebhook): SchemaRichEmbed {
         return {
-            ...this.senderAsAuthor(webhook),
-            ...this.repositoryAsTitle(webhook),
+            ...EmbedTransformer.senderAsAuthor(webhook),
+            ...EmbedTransformer.repositoryAsTitle(webhook),
             color: COLORS.muted.int,
             description: `${EMOJIS.watch} \u00A0Started watching`,
         }

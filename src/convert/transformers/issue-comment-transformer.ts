@@ -11,8 +11,8 @@ export class IssueCommentTransformer extends EmbedTransformer<IssueCommentWebhoo
             const linkedComment = mdLink('comment', webhook.comment.html_url);
             const isPr = !!webhook.issue.pull_request;
             return {
-                ...this.senderAsAuthor(webhook),
-                ...this.repositoryAsTitle(webhook),
+                ...EmbedTransformer.senderAsAuthor(webhook),
+                ...EmbedTransformer.repositoryAsTitle(webhook),
                 description: `${EMOJIS.comment} \u00A0New ${linkedComment} on ${isPr ? 'pull request' : 'issue'} ${linkedIssueNumber}`,
                 color: COLORS.muted.int,
                 fields: [

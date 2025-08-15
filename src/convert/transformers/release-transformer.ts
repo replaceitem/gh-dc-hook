@@ -11,8 +11,8 @@ export class ReleaseTransformer extends EmbedTransformer<ReleaseWebhook> {
         const icon = isPrerelease ? EMOJIS.pre_release : EMOJIS.release;
         const releaseLink = mdLink(cutLengthEllipsis(webhook.release.tag_name, 50), webhook.release.html_url);
         return {
-            ...this.senderAsAuthor(webhook),
-            ...this.repositoryAsTitle(webhook),
+            ...EmbedTransformer.senderAsAuthor(webhook),
+            ...EmbedTransformer.repositoryAsTitle(webhook),
             color: isPrerelease ? COLORS.attention.int : COLORS.success.int,
             description: `${icon} \u00A0${isPrerelease ? 'Pre-release' : 'Release'} ${releaseLink} published`,
             fields: [
