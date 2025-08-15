@@ -1,9 +1,11 @@
-export const logPayload = async (eventType: string, data: any) => {
+import {defined} from "./util/util.ts";
+
+export const logPayload = async (eventType: string, data: object) => {
     await Deno.mkdir('./payload_log', {recursive: true});
     const eventName = [
         eventType,
-        data.action ? data.action : undefined
-    ].filter(s => s !== undefined).join('_').toLowerCase();
+        'action' in data ? data.action : undefined
+    ].filter(defined).join('_').toLowerCase();
     const filename = `${new Date().toISOString().replaceAll(/[:.]/g,'-')}_${eventName}`;
     const json = JSON.stringify({
         data,
