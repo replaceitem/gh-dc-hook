@@ -4,6 +4,7 @@ import {
     SchemaIncomingWebhookUpdateRequestPartial
 } from "./openapi/discord-schema.ts";
 import { Client } from "openapi-fetch";
+import {PROJECT_URL, VERSION} from "./util/constants.ts";
 
 
 export type WebhookContent = SchemaIncomingWebhookRequestPartial & SchemaIncomingWebhookUpdateRequestPartial;
@@ -15,6 +16,9 @@ export interface DiscordWebhookCredentials {
 
 
 export class DiscordWebhookClient {
+    // https://discord.com/developers/docs/reference#user-agent
+    static USER_AGENT = `DiscordBot (${PROJECT_URL}, ${VERSION})`;
+
     constructor(private discordClient:  Client<discordPaths>) {
     }
 
@@ -28,6 +32,9 @@ export class DiscordWebhookClient {
                 query: {
                     wait,
                 }
+            },
+            headers: {
+                'User-Agent': DiscordWebhookClient.USER_AGENT,
             },
             body: data,
         });

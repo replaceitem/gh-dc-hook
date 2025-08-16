@@ -1,9 +1,10 @@
-const color = (hex: string) => {
-    return {
-        int: parseInt(hex.substring(1), 16),
-        hex,
-    };
-}
+export const VERSION = '0.1.0';
+export const PROJECT_URL = 'https://github.com/replaceitem/gh-dc-hook';
+
+const color = (hex: string) => ({
+    int: parseInt(hex.substring(1), 16),
+    hex,
+});
 
 
 export const COLORS = {
