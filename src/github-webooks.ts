@@ -7,6 +7,7 @@ import { BaseWebhook } from "./schemas/base.ts";
 import {ForkWebhook} from "./schemas/fork.ts";
 import {WorkflowJobWebhook} from "./schemas/workflow-job.ts";
 import {WorkflowRunWebhook} from "./schemas/workflow-run.ts";
+import {CommitCommentWebhook} from "./schemas/commit-comment.ts";
 
 
 export const WEBHOOK_EVENTS: Set<WebhookKey> = new Set([
@@ -96,7 +97,7 @@ export interface Webhooks {
     check_run: BaseWebhook;
     check_suite: BaseWebhook;
     code_scanning_alert: BaseWebhook;
-    commit_comment: BaseWebhook;
+    commit_comment: CommitCommentWebhook;
     create: BaseWebhook;
     custom_property: BaseWebhook;
     custom_property_values: BaseWebhook;

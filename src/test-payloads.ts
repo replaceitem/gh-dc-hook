@@ -20,7 +20,7 @@ const loadSamplePayload = async <T extends WebhookKey>(file: string) => {
 };
 
 
-const runPayloads = async (file: string) => {
+const runPayload = async (file: string) => {
     const payload = await loadSamplePayload(file);
     await onWebhookEvent(payload, credentials);
 }
@@ -49,9 +49,9 @@ const replayPayloads = async (dir: string) => {
             await sleep(time - previousTime);
         }
         previousTime = time;
-        await runPayloads(`${dir}/${event.name}`);
+        await runPayload(`${dir}/${event.name}`);
     }
     console.log('Done');
 }
 
-await replayPayloads('workflow_job/different_conclusions_run');
+await runPayload('commit_comment/created.json');

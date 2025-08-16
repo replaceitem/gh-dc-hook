@@ -18,6 +18,7 @@ import {
 import {IncomingWebhookData, WebhookKey} from "./github-webooks.ts";
 import {WebhookHandler} from "./convert/handler.ts";
 import {WorkflowRunHandler} from "./convert/handlers/workflow-run-handler.ts";
+import {CommitCommentTransformer} from "./convert/transformers/commit-comment-transformer.ts";
 
 
 const client = createClient<discordPaths>({baseUrl: 'https://discord.com/api/v10'});
@@ -35,6 +36,7 @@ const defaultHandler = new SimpleSendHandler(discordWebhookClient, {
     public: new PublicTransformer(),
     release: new ReleaseTransformer(),
     create: new CreateTransformer(),
+    commit_comment: new CommitCommentTransformer(),
 });
 
 
