@@ -20,6 +20,7 @@ import {WebhookHandler} from "./convert/handler.ts";
 import {WorkflowRunHandler} from "./convert/handlers/workflow-run-handler.ts";
 import {CommitCommentTransformer} from "./convert/transformers/commit-comment-transformer.ts";
 import {DiscussionTransformer} from "./convert/transformers/discussion-transformer.ts";
+import {DiscussionCommentTransformer} from "./convert/transformers/discussion-comment-transformer.ts";
 
 
 const client = createClient<discordPaths>({baseUrl: 'https://discord.com/api/v10'});
@@ -39,6 +40,7 @@ const defaultHandler = new SimpleSendHandler(discordWebhookClient, {
     create: new CreateTransformer(),
     commit_comment: new CommitCommentTransformer(),
     discussion: new DiscussionTransformer(),
+    discussion_comment: new DiscussionCommentTransformer(),
 });
 
 

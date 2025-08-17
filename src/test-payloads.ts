@@ -48,4 +48,4 @@ const replayPayloads = async (dir: string) => {
     console.log('Done');
 }
 
-await runPayload('discussion/created_announcement.json');
+await runPayload('discussion_comment/created.json');

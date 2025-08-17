@@ -16,7 +16,7 @@ export class DiscussionTransformer extends EmbedTransformer<DiscussionWebhook> {
                 fields: [
                     {
                         name: '',
-                        value: `${webhook.discussion.category.emoji} ${webhook.discussion.category.name}`,
+                        value: `${webhook.discussion.category.emoji} \u00A0${webhook.discussion.category.name}`,
                     },
                     {
                         name: cutLengthEllipsis(webhook.discussion.title, 100),
