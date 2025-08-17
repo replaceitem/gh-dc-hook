@@ -7,7 +7,7 @@ import {IssuesWebhook} from "../../schemas/issues.ts";
 
 export class IssuesTransformer extends EmbedTransformer<IssuesWebhook> {
     override transformEmbed(webhook: IssuesWebhook): SchemaRichEmbed | undefined {
-        if(webhook.action == 'opened' || webhook.action == 'reopened' || webhook.action == 'closed') {
+        if(webhook.action === 'opened' || webhook.action === 'reopened' || webhook.action === 'closed') {
             const linkedIssueNumber = mdLink(`#${webhook.issue.number}`, webhook.issue.html_url);
             return {
                 ...EmbedTransformer.senderAsAuthor(webhook),

@@ -49,4 +49,8 @@ export const EMOJIS = {
     wf_success: '<:gh_wf_success:1406699282458738878>',
     wf_failure: '<:gh_wf_failure:1406699275529879637>',
     wf_stopped: '<:gh_wf_stopped:1406699281326280896>',
+    discussion_open: '<:gh_discussion_open:1406727776978862222>',
+    discussion_closed: '<:gh_discussion_closed:1406727774042849291>',
+    discussion_outdated: '<:gh_discussion_outdated:1406727778803519660>',
+    discussion_duplicate: '<:gh_discussion_duplicate:1406727775624237087>',
 };

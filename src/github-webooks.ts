@@ -8,6 +8,8 @@ import {ForkWebhook} from "./schemas/fork.ts";
 import {WorkflowJobWebhook} from "./schemas/workflow-job.ts";
 import {WorkflowRunWebhook} from "./schemas/workflow-run.ts";
 import {CommitCommentWebhook} from "./schemas/commit-comment.ts";
+import {DiscussionWebhook} from "./schemas/discussion.ts";
+import {DiscussionCommentWebhook} from "./schemas/discussion-comment.ts";
 
 
 export const WEBHOOK_EVENTS: Set<WebhookKey> = new Set([
@@ -108,8 +110,8 @@ export interface Webhooks {
     deployment_protection_rule: BaseWebhook;
     deployment_review: BaseWebhook;
     deployment_status: BaseWebhook;
-    discussion: BaseWebhook;
-    discussion_comment: BaseWebhook;
+    discussion: DiscussionWebhook;
+    discussion_comment: DiscussionCommentWebhook;
     fork: ForkWebhook;
     github_app_authorization: BaseWebhook;
     gollum: BaseWebhook;

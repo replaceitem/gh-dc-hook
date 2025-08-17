@@ -27,7 +27,7 @@ Converts GitHub webhooks to nicely formatted discord webhooks.
 | `deployment_protection_rule`      | ❌                    | ❌         |
 | `deployment_review`               | ❌                    | ❌         |
 | `deployment_status`               | ❌                    | ❌         |
-| `discussion`                      | ✅                    | ❌         |
+| `discussion`                      | ✅                    | ✅         |
 | `discussion_comment`              | ✅                    | ❌         |
 | `fork`                            | ✅                    | ✅         |
 | `github_app_authorization`        | ❌                    | ❌         |

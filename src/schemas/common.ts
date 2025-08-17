@@ -1025,19 +1025,7 @@ export interface WebhooksIssue {
         url?: string;
     };
     /** Reactions */
-    reactions: {
-        "+1": number;
-        "-1": number;
-        confused: number;
-        eyes: number;
-        heart: number;
-        hooray: number;
-        laugh: number;
-        rocket: number;
-        total_count: number;
-        /** Format: uri */
-        url: string;
-    };
+    reactions: Reactions;
     /** Format: uri */
     repository_url: string;
     /** Sub-issues Summary */
@@ -1320,19 +1308,7 @@ export interface WebhooksIssueComment {
     node_id: string;
     performed_via_github_app: Integration | null;
     /** Reactions */
-    reactions: {
-        "+1": number;
-        "-1": number;
-        confused: number;
-        eyes: number;
-        heart: number;
-        hooray: number;
-        laugh: number;
-        rocket: number;
-        total_count: number;
-        /** Format: uri */
-        url: string;
-    };
+    reactions: Reactions;
     /** Format: date-time */
     updated_at: string;
     /**
@@ -2079,19 +2055,7 @@ export interface WebhooksRelease {
     /** Format: date-time */
     published_at: string | null;
     /** Reactions */
-    reactions?: {
-        "+1": number;
-        "-1": number;
-        confused: number;
-        eyes: number;
-        heart: number;
-        hooray: number;
-        laugh: number;
-        rocket: number;
-        total_count: number;
-        /** Format: uri */
-        url: string;
-    };
+    reactions?: Reactions;
     /** @description The name of the tag. */
     tag_name: string;
     /** Format: uri */
@@ -2556,4 +2520,126 @@ export interface WebhooksWorkflowJob {
     }[];
     /** Format: uri */
     url: string;
+}
+
+export interface Discussion {
+    active_lock_reason: string | null;
+    answer_chosen_at: string | null;
+    /** User */
+    answer_chosen_by: SimpleUser | null;
+    answer_html_url: string | null;
+    /**
+     * AuthorAssociation
+     * @description How the author is associated with the repository.
+     * @enum {string}
+     */
+    author_association: "COLLABORATOR" | "CONTRIBUTOR" | "FIRST_TIMER" | "FIRST_TIME_CONTRIBUTOR" | "MANNEQUIN" | "MEMBER" | "NONE" | "OWNER";
+    body: string;
+    category: {
+        /** Format: date-time */
+        created_at: string;
+        description: string;
+        emoji: string;
+        id: number;
+        is_answerable: boolean;
+        name: string;
+        node_id?: string;
+        repository_id: number;
+        slug: string;
+        updated_at: string;
+    };
+    comments: number;
+    /** Format: date-time */
+    created_at: string;
+    html_url: string;
+    id: number;
+    locked: boolean;
+    node_id: string;
+    number: number;
+    /** Reactions */
+    reactions?: Reactions;
+    repository_url: string;
+    /**
+     * @description The current state of the discussion.
+     *     `converting` means that the discussion is being converted from an issue.
+     *     `transferring` means that the discussion is being transferred from another repository.
+     * @enum {string}
+     */
+    state: "open" | "closed" | "locked" | "converting" | "transferring";
+    /**
+     * @description The reason for the current state
+     * @example resolved
+     * @enum {string|null}
+     */
+    state_reason: "resolved" | "outdated" | "duplicate" | "reopened" | null;
+    timeline_url?: string;
+    title: string;
+    /** Format: date-time */
+    updated_at: string;
+    /** User */
+    user: SimpleUser | null;
+    labels?: WebhooksLabel[];
+}
+
+export interface DiscussionAnswer {
+    /**
+     * AuthorAssociation
+     * @description How the author is associated with the repository.
+     * @enum {string}
+     */
+    author_association: "COLLABORATOR" | "CONTRIBUTOR" | "FIRST_TIMER" | "FIRST_TIME_CONTRIBUTOR" | "MANNEQUIN" | "MEMBER" | "NONE" | "OWNER";
+    body: string;
+    child_comment_count: number;
+    /** Format: date-time */
+    created_at: string;
+    discussion_id: number;
+    html_url: string;
+    id: number;
+    node_id: string;
+    parent_id: unknown;
+    /** Reactions */
+    reactions?: Reactions;
+    repository_url: string;
+    /** Format: date-time */
+    updated_at: string;
+    /** User */
+    user: SimpleUser | null;
+}
+
+export interface Reactions {
+    "+1": number;
+    "-1": number;
+    confused: number;
+    eyes: number;
+    heart: number;
+    hooray: number;
+    laugh: number;
+    rocket: number;
+    total_count: number;
+    /** Format: uri */
+    url: string;
+}
+
+
+export interface DiscussionComment {
+    /**
+     * AuthorAssociation
+     * @description How the author is associated with the repository.
+     * @enum {string}
+     */
+    author_association: "COLLABORATOR" | "CONTRIBUTOR" | "FIRST_TIMER" | "FIRST_TIME_CONTRIBUTOR" | "MANNEQUIN" | "MEMBER" | "NONE" | "OWNER";
+    body: string;
+    child_comment_count: number;
+    created_at: string;
+    discussion_id: number;
+    html_url: string;
+    id: number;
+    node_id: string;
+    parent_id: number | null;
+    /** Reactions */
+    reactions: Reactions;
+    repository_url: string;
+    updated_at: string;
+    /** User */
+    user: SimpleUser | null;
 }

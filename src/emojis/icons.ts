@@ -202,4 +202,26 @@ export const icons: IconOptions[] = [
         icon: 'stop',
         color: COLORS.muted.hex,
     },
+
+    // Discussions
+    {
+        name: 'discussion_open',
+        icon: 'comment-discussion',
+        color: COLORS.success.hex,
+    },
+    {
+        name: 'discussion_closed',
+        icon: 'discussion-closed',
+        color: COLORS.done.hex,
+    },
+    {
+        name: 'discussion_outdated',
+        icon: 'discussion-outdated',
+        color: COLORS.muted.hex,
+    },
+    {
+        name: 'discussion_duplicate',
+        icon: 'discussion-duplicate',
+        color: COLORS.muted.hex,
+    },
 ];
