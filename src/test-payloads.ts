@@ -1,17 +1,11 @@
 import {onWebhookEvent} from "./webhook-event.ts";
 import {DiscordWebhookCredentials} from "./discord-webhook-client.ts";
 import {IncomingWebhookData, WebhookKey} from "./github-webooks.ts";
-import {sleep} from "./util/util.ts";
-
-const envOrThrow = (env: string): string => {
-    const val = Deno.env.get(env);
-    if(!val) throw new Error(`Missing ${env} environment variable`);
-    return val;
-}
+import {getEnvOrThrow, sleep} from "./util/util.ts";
 
 const credentials: DiscordWebhookCredentials = {
-    id: envOrThrow('DISCORD_WEBHOOK_ID'),
-    token: envOrThrow('DISCORD_WEBHOOK_TOKEN'),
+    id: getEnvOrThrow('DISCORD_WEBHOOK_ID'),
+    token: getEnvOrThrow('DISCORD_WEBHOOK_TOKEN'),
 };
 
 const loadSamplePayload = async <T extends WebhookKey>(file: string) => {

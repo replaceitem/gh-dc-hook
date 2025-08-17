@@ -4,9 +4,11 @@
     "main": "deno run --env-file --allow-net --allow-env --allow-write src/main.ts",
     "gen-api": "deno run --allow-net --allow-env --allow-sys --allow-read --allow-write src/gen-api.ts",
     "test-payloads": "deno run --env-file --allow-env --allow-net --allow-read src/test-payloads.ts",
-    "icon-converter": "deno run --allow-net --allow-write --allow-read --allow-env --allow-ffi src/icon-converter.ts"
+    "icon-converter": "deno run --allow-net --allow-write --allow-read --allow-env --allow-ffi src/emojis/icon-converter.ts",
+    "upload-emojis": "deno run --env-file --allow-net --allow-read --allow-env src/emojis/upload-emojis.ts"
   },
   "imports": {
+    "@std/media-types": "jsr:@std/media-types@^1.1.0",
     "openapi-typescript": "npm:openapi-typescript@^7.8.0",
     "openapi-fetch": "npm:openapi-fetch@^0.14.0",
     "sharp": "npm:sharp@^0.34.3",

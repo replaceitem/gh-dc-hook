@@ -25,12 +25,12 @@ export class IssuesTransformer extends EmbedTransformer<IssuesWebhook> {
     }
 
     private getStateIcon(webhook: IssuesWebhook): string | undefined {
-        if(webhook.action === 'opened') return EMOJIS.issue_open;
+        if(webhook.action === 'opened') return EMOJIS.issue_opened;
         if(webhook.action === 'reopened') return EMOJIS.issue_reopen;
         if(webhook.action === 'closed') {
             return webhook.issue.state_reason === 'completed' ? EMOJIS.issue_done : EMOJIS.issue_skip;
         }
-        return EMOJIS.issue_open;
+        return EMOJIS.issue_opened;
     }
 
     private getStateText(webhook: IssuesWebhook) {

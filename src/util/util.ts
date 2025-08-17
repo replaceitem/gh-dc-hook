@@ -2,6 +2,11 @@ export const sleep = (ms: number): Promise<void> => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+export const getEnvOrThrow = (env: string): string => {
+    const val = Deno.env.get(env);
+    if(!val) throw new Error(`Missing ${env} environment variable`);
+    return val;
+}
 
 export class Debouncer {
     private timer?: number;
