@@ -6,8 +6,8 @@ import {
     ImageMagick,
     initialize,
     MagickFormat,
-} from "https://deno.land/x/imagemagick_deno/mod.ts";
-import {IMagickImage, MagickImageCollection} from "npm:@imagemagick/magick-wasm@0.0.31";
+} from "imagemagick_deno";
+import {IMagickImage, MagickImageCollection} from "magick-wasm";
 import {IconOptions, icons} from "./icons.ts";
 
 const EMOJI_SIZE = 128;

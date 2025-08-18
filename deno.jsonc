@@ -12,7 +12,9 @@
     "openapi-typescript": "npm:openapi-typescript@^7.8.0",
     "openapi-fetch": "npm:openapi-fetch@^0.14.0",
     "sharp": "npm:sharp@^0.34.3",
-    "xml-js": "npm:xml-js@^1.6.11"
+    "xml-js": "npm:xml-js@^1.6.11",
+    "imagemagick_deno": "https://deno.land/x/imagemagick_deno@0.0.31/mod.ts",
+    "magick-wasm": "npm:@imagemagick/magick-wasm@0.0.31"
   }
 }
 
