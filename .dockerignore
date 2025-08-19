@@ -1,0 +1,18 @@
+.git
+.gitignore
+.idea/
+Dockerfile
+README.md
+_build/
+node_modules/
+
+.env
+deno.lock
+
+gen_emojis/
+payload_log/
+sample-payloads/
+assets/
+
+# Not used in code, just for reference
+src/openapi/github-schema.ts
