@@ -30,7 +30,7 @@ export const EMOJIS = {
     force_push: '<:gh_force_push:1406699239173783583>',
     commit_top: '<:gh_commit_top:1406699237554655232>',
     commit_center: '<:gh_commit_center:1406699236363599934>',
-    commit_bottom: '<:gh_commit_bottom:1406699234845130805>',
+    commit_bottom: '<:gh_commit_bottom:1407845612438945835>',
     fork: '<:gh_fork:1406699240620556300>',
     pr_open: '<:gh_pr_open:1406699257079136359>',
     pr_open_draft: '<:gh_pr_open_draft:1406699258819645542>',
