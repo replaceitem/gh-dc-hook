@@ -31,6 +31,7 @@ export const tryParseDate = (dateString: string | null | undefined): Date | unde
 }
 
 export const formatDuration = (millis: number) => {
+    millis = Math.abs(millis);
     const totalSeconds = Math.floor(millis / 1000);
     const seconds = totalSeconds % 60;
     const totalMinutes = Math.floor(totalSeconds / 60);

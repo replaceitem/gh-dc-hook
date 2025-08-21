@@ -85,7 +85,7 @@ class WorkflowData {
 
         const timeDifferenceString = (start?: Date, end?: Date) => {
             const startTimestampString = () => start ? `Started ${mdTimestamp(start, TimestampStyle.RELATIVE_TIME)}` : undefined;
-            const durationString = () => start && end ? formatDuration(end.getTime() - start.getTime()) : undefined;
+            const durationString = () => start && end ? formatDuration(Math.max(end.getTime() - start.getTime(), 0)) : undefined;
             return end ? durationString() : startTimestampString();
         }
         const conclusionLine = timeDifferenceString(this.startDate, this.conclusion === undefined ? undefined : this.lastCompletedAt);
