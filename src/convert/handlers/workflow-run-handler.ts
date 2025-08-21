@@ -5,7 +5,7 @@ import {EmbedTransformer} from "../embed-transformer.ts";
 import {RepositoryWebhooks, SimpleUser, WebhooksWorkflowJob, WebhooksWorkflowRun} from "../../schemas/common.ts";
 import {cutLengthEllipsis, mdLink, mdTimestamp, TimestampStyle} from "../../util/markdown-util.ts";
 import {COLORS, EMOJIS} from "../../util/constants.ts";
-import {Debouncer, defined, formatDuration, joinLines, tryParseDate} from "../../util/util.ts";
+import {Debouncer, formatDuration, joinLines, tryParseDate} from "../../util/util.ts";
 
 type WorkflowId = number;
 
@@ -182,10 +182,8 @@ export class WorkflowRunHandler extends WebhookHandler<'workflow_run' | 'workflo
 
     public handle(webhook: IncomingWebhookData<"workflow_run" | "workflow_job">, credentials: DiscordWebhookCredentials): Promise<Response> {
         const runId = webhook.event === 'workflow_run' ? webhook.data.workflow_run.id : webhook.data.workflow_job.run_id;
-        console.log(`Received ${webhook.event} ${webhook.data.action} for ${runId}`);
         let workflowRun = this.workflowRuns.get(runId);
         if(!workflowRun) {
-            console.log(`New ID ${runId} Creating`)
             workflowRun = {
                 runId,
                 lastActivity: new Date(),
@@ -202,15 +200,12 @@ export class WorkflowRunHandler extends WebhookHandler<'workflow_run' | 'workflo
             const content = workflowRun.data.transform();
             if(content) {
                 if(workflowRun.webookMessageId) {
-                    console.log('Found old message id, editing')
                     workflowRun.webookMessageId = workflowRun.webookMessageId.then((messageId) => {
-                        console.log(`=> message id resolved: ${messageId}`);
                         if(messageId === undefined) return this.sendRetrieveId(content, credentials);
                         return this.editRetrieveId(content, credentials, messageId);
                     });
                     workflowRun.webookMessageId.then();
                 } else {
-                    console.log('No old message id, sending')
                     workflowRun.webookMessageId = this.sendRetrieveId(content, credentials);
                     workflowRun.webookMessageId.then();
                 }
