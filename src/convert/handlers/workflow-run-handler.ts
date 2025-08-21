@@ -48,6 +48,9 @@ class WorkflowData {
             if(!this.startDate) {
                 this.startDate = tryParseDate(run.run_started_at);
             }
+            if(!this.lastCompletedAt && this.startDate) {
+                this.lastCompletedAt = this.startDate;
+            }
         } else {
             const job = webhook.data.workflow_job;
             let jobData = this.jobsById.get(job.id);
