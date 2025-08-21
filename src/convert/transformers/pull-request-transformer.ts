@@ -52,8 +52,11 @@ export class PullRequestTransformer extends EmbedTransformer<PullRequestWebhook>
     }
 
     private getTitleText(webhook: PullRequestWebhook): string | undefined {
-        if(webhook.action === 'opened' || webhook.action === 'reopened') {
+        if(webhook.action === 'opened') {
             return webhook.pull_request.draft ? 'Draft pull request opened' : 'Pull request opened';
+        }
+        if(webhook.action === 'reopened') {
+            return webhook.pull_request.draft ? 'Draft pull request reopened' : 'Pull request reopened';
         }
         if(webhook.action === 'closed') {
             return webhook.pull_request.merged ? 'Pull request merged' : 'Pull request closed';
