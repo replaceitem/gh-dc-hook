@@ -81,7 +81,7 @@ Converts GitHub webhooks to nicely formatted discord webhooks.
 | `sub_issues`                      | ❌                    | ❌         |
 | `team_add`                        | ❌                    | ❌         |
 | `team`                            | ❌                    | ❌         |
-| `watch`                           | ✅                    | ✅         |
+| `watch`                           | ✅                    | ❌         |
 | `workflow_dispatch`               | ❌                    | ❌         |
 | `workflow_job`                    | ✅                    | ✅         |
 | `workflow_run`                    | ✅                    | ✅         |

@@ -2,7 +2,6 @@ import {SimpleSendHandler} from "./convert/handlers/simple-send-handler.ts";
 import {StarTransformer} from "./convert/transformers/star-transformer.ts";
 import {IssuesTransformer} from "./convert/transformers/issues-transformer.ts";
 import {IssueCommentTransformer} from "./convert/transformers/issue-comment-transformer.ts";
-import {WatchTransformer} from "./convert/transformers/watch-transformer.ts";
 import {ForkTransformer} from "./convert/transformers/fork-transformer.ts";
 import {PushTransformer} from "./convert/transformers/push-transformer.ts";
 import {PullRequestTransformer} from "./convert/transformers/pull-request-transformer.ts";
@@ -30,7 +29,6 @@ const defaultHandler = new SimpleSendHandler(discordWebhookClient, {
     star: new StarTransformer(),
     issues: new IssuesTransformer(),
     issue_comment: new IssueCommentTransformer(),
-    watch: new WatchTransformer(),
     push: new PushTransformer(),
     fork: new ForkTransformer(),
     pull_request: new PullRequestTransformer(),
