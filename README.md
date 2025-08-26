@@ -98,81 +98,81 @@ Converts GitHub webhooks to nicely formatted Discord webhooks.
 
 ### `star`
 
-<span><img alt="New star added" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241722/star-created_a2pugj.webp" width="280"/><span/>
-<span><img alt="Star removed" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241722/star-deleted_isa6zo.webp" width="280"/><span/>
+<span><img alt="New star added" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241722/star-created_a2pugj.webp" width="270"/></span>
+<span><img alt="Star removed" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241722/star-deleted_isa6zo.webp" width="270"/></span>
 
 ### `fork`
 
-<span><img alt="Fork created" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241697/fork-fork_ohgrfd.webp" width="280"/><span/>
+<span><img alt="Fork created" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241697/fork-fork_ohgrfd.webp" width="270"/></span>
 
 ### `public`
 
-<span><img alt="Repository published" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241703/public-public_ufn0pu.webp" width="280"/><span/>
+<span><img alt="Repository published" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241703/public-public_ufn0pu.webp" width="270"/></span>
 
 ### `push`
 
-<span><img alt="Pushed 1 commit to test/main" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241718/push-single_ha6f0u.webp" width="280"/><span/>
-<span><img alt="Pushed 10 commits to test/main" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241715/push-multiple_iwqqgp.webp" width="280"/><span/>
-<span><img alt="img.png" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241713/push-force_ejmvte.webp" width="280"/><span/>
+<span><img alt="Pushed 1 commit to test/main" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241718/push-single_ha6f0u.webp" width="270"/></span>
+<span><img alt="Pushed 10 commits to test/main" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241715/push-multiple_iwqqgp.webp" width="270"/></span>
+<span><img alt="img.png" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241713/push-force_ejmvte.webp" width="270"/></span>
 
 ### `create`
 
-<span><img alt="Branch feature-1 created" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241690/create-branch_m8jobz.webp" width="280"/><span/>
-<span><img alt="Tag v1.2.34 created" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241690/create-tag_u6dwk1.webp" width="280"/><span/>
+<span><img alt="Branch feature-1 created" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241690/create-branch_m8jobz.webp" width="270"/></span>
+<span><img alt="Tag v1.2.34 created" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241690/create-tag_u6dwk1.webp" width="270"/></span>
 
 ### `release`
 
-<span><img alt="Release v1.0.0 published" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241719/release-publish_m0z7v7.webp" width="280"/><span/>
-<span><img alt="Pre-release v1.1.0-beta.1 published" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241718/release-pre-release_nrujul.webp" width="280"/><span/>
+<span><img alt="Release v1.0.0 published" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241719/release-publish_m0z7v7.webp" width="270"/></span>
+<span><img alt="Pre-release v1.1.0-beta.1 published" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241718/release-pre-release_nrujul.webp" width="270"/></span>
 
 ### `workflow_job` and `workflow_run`
 
-<span><img alt="Workflow run with several jobs" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756242505/out-smaller_y4rf5z.webp" width="280"/><span/>
-<span><img alt="Workflow run with several different conclusions" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756242469/out_wim4ia.webp" width="280"/><span/>
+<span><img alt="Workflow run with several jobs" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756242505/out-smaller_y4rf5z.webp" width="270"/></span>
+<span><img alt="Workflow run with several different conclusions" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756242469/out_wim4ia.webp" width="270"/></span>
 
 
 ### `commit_comment`
 
-<span><img alt="New comment on commit 3f4ea57" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241726/commit-comment-created_qt46zj.webp" width="280"/><span/>
+<span><img alt="New comment on commit 3f4ea57" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241726/commit-comment-created_qt46zj.webp" width="270"/></span>
 
 ### `discussion`
 
-<span><img alt="Discussion #10 created" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241692/discussion-created_rbcpxe.webp" width="280"/><span/>
-<span><img alt="Discussion #10 answered" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241690/discussion-answered_cwkaom.webp" width="280"/><span/>
-<span><img alt="Discussion #12 closed as duplicate" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241691/discussion-closed-duplicate_kfgur7.webp" width="280"/><span/>
-<span><img alt="Discussion #12 closed as outdated" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241692/discussion-closed-outdated_rfvcz7.webp" width="280"/><span/>
-<span><img alt="Discussion #12 closed as resolved" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241694/discussion-closed-resolved_z3gias.webp" width="280"/><span/>
-<span><img alt="Discussion #12 reopened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241696/discussion-reopened_yed5om.webp" width="280"/><span/>
+<span><img alt="Discussion #10 created" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241692/discussion-created_rbcpxe.webp" width="270"/></span>
+<span><img alt="Discussion #10 answered" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241690/discussion-answered_cwkaom.webp" width="270"/></span>
+<span><img alt="Discussion #12 closed as duplicate" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241691/discussion-closed-duplicate_kfgur7.webp" width="270"/></span>
+<span><img alt="Discussion #12 closed as outdated" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241692/discussion-closed-outdated_rfvcz7.webp" width="270"/></span>
+<span><img alt="Discussion #12 closed as resolved" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241694/discussion-closed-resolved_z3gias.webp" width="270"/></span>
+<span><img alt="Discussion #12 reopened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241696/discussion-reopened_yed5om.webp" width="270"/></span>
 
 ### `discussion_comment`
 
-<span><img alt="New comment on discussion #10" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241695/discussion-comment-created_q1zbt4.webp" width="280"/><span/>
+<span><img alt="New comment on discussion #10" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241695/discussion-comment-created_q1zbt4.webp" width="270"/></span>
 
 ### `issues`
 
-<span><img alt="Issue opened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241701/issues-opened_enjtw9.webp" width="280"/><span/>
-<span><img alt="Issue closed" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241699/issues-closed-completed_rtsfqj.webp" width="280"/><span/>
-<span><img alt="Issue closed as duplicate" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241699/issues-closed-duplicate_uozhmm.webp" width="280"/><span/>
-<span><img alt="Issue reopened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241702/issues-reopened_fsbj3v.webp" width="280"/><span/>
+<span><img alt="Issue opened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241701/issues-opened_enjtw9.webp" width="270"/></span>
+<span><img alt="Issue closed" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241699/issues-closed-completed_rtsfqj.webp" width="270"/></span>
+<span><img alt="Issue closed as duplicate" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241699/issues-closed-duplicate_uozhmm.webp" width="270"/></span>
+<span><img alt="Issue reopened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241702/issues-reopened_fsbj3v.webp" width="270"/></span>
 
 ### `issue_comment`
 
-<span><img alt="New comment on issue #2" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241693/issue-comment-created_s3vr9m.webp" width="280"/><span/>
-<span><img alt="New comment on pull request #6" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241699/issue-comment-created-pr_p6naqj.webp" width="280"/><span/>
+<span><img alt="New comment on issue #2" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241693/issue-comment-created_s3vr9m.webp" width="270"/></span>
+<span><img alt="New comment on pull request #6" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241699/issue-comment-created-pr_p6naqj.webp" width="270"/></span>
 
 ### `pull_request`
 
-<span><img alt="Pull request opened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241706/pull-request-opened_v8j6uc.webp" width="280"/><span/>
-<span><img alt="Draft pull request opened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241709/pull-request-opened-draft_x8528s.webp" width="280"/><span/>
-<span><img alt="Pull request merged" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241705/pull-request-closed-merged_hxovpt.webp" width="280"/><span/>
-<span><img alt="Pull request converted to draft" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241705/pull-request-converted-to-draft_uskoxq.webp" width="280"/><span/>
-<span><img alt="Pull request marked as ready for review" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241709/pull-request-ready-for-review_mwh5aq.webp" width="280"/><span/>
+<span><img alt="Pull request opened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241706/pull-request-opened_v8j6uc.webp" width="270"/></span>
+<span><img alt="Draft pull request opened" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241709/pull-request-opened-draft_x8528s.webp" width="270"/></span>
+<span><img alt="Pull request merged" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241705/pull-request-closed-merged_hxovpt.webp" width="270"/></span>
+<span><img alt="Pull request converted to draft" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241705/pull-request-converted-to-draft_uskoxq.webp" width="270"/></span>
+<span><img alt="Pull request marked as ready for review" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241709/pull-request-ready-for-review_mwh5aq.webp" width="270"/></span>
 
 ### `pull_request_review`
 
-<span><img alt="Approved these changes" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241710/pull-request-review-submitted-approved_xkw3vp.webp" width="280"/><span/>
-<span><img alt="Requested changes" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241712/pull-request-review-submitted-changes-requested_kvwfva.webp" width="280"/><span/>
-<span><img alt="Reviewed" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241713/pull-request-review-submitted-commented_m1crgc.webp" width="280"/><span/>
+<span><img alt="Approved these changes" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241710/pull-request-review-submitted-approved_xkw3vp.webp" width="270"/></span>
+<span><img alt="Requested changes" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241712/pull-request-review-submitted-changes-requested_kvwfva.webp" width="270"/></span>
+<span><img alt="Reviewed" src="https://res.cloudinary.com/dhohea0g5/image/upload/v1756241713/pull-request-review-submitted-commented_m1crgc.webp" width="270"/></span>
 
 
 ## Usage
