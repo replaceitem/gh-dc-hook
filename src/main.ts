@@ -10,6 +10,8 @@ Preferred-Languages: en`;
 const WEBHOOK_ROUTE = new URLPattern({ pathname: "/api/webhooks/:id/:token" });
 const SECURITY_ROUTE = new URLPattern({ pathname: "/.well-known/security.txt" });
 
+const MAX_PAYLOAD_SIZE = 25 * (1 << 20); // 25 MB
+
 interface Route {
     pattern: URLPattern,
     handler: (req: Request, route: URLPatternResult) => Promise<Response> | Response,
@@ -43,7 +45,13 @@ const routes: Route[] = [
 
             let data: unknown;
             try {
-                data = await req.json() as unknown;
+                const buf = await req.arrayBuffer();
+                if(buf.byteLength > MAX_PAYLOAD_SIZE) {
+                    return new Response('Content too large. Cannot be more than 25 MB: https://docs.github.com/en/webhooks/webhook-events-and-payloads#payload-cap', {
+                        status: 413,
+                    });
+                }
+                data = JSON.parse(new TextDecoder().decode(buf));
             } catch (_e) {
                 return new Response('Missing or invalid JSON body', {
                     status: 400,
