@@ -2,7 +2,7 @@ import {EmbedTransformer} from "../embed-transformer.ts";
 import {SchemaRichEmbed} from "../../openapi/discord-schema.ts";
 import {PushWebhook} from "../../schemas/push.ts";
 import {COLORS, EMOJIS} from "../../util/constants.ts";
-import {cutLengthEllipsis, mdLink} from "../../util/markdown-util.ts";
+import {clearLinebreaks, cutWidthEllipsis, mdLink} from "../../util/markdown-util.ts";
 import {WebhooksCommit} from "../../schemas/common.ts";
 import {joinLines} from "../../util/util.ts";
 
@@ -44,7 +44,9 @@ export class PushTransformer extends EmbedTransformer<PushWebhook> {
         }
         const commitLogText = commitsToShow.reverse().map((commit, index) => {
             const emoji = index === 0 ? EMOJIS.commit_top : EMOJIS.commit_center;
-            const commitText = commit === 'more' ? `*+${additionalCommits} more*` : cutLengthEllipsis(commit.message, 50);
+            const commitText = commit === 'more' ?
+                `*+${additionalCommits} more*` :
+                cutWidthEllipsis(clearLinebreaks(commit.message), 460); // 460px is the remaining width of text before it would overflow in a desktop embed (with some safety margin)
             return `${emoji} ${commitText}`;
         }).join('\n');
         return `${commitLogText}\n${EMOJIS.commit_bottom}`
