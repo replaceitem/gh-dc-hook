@@ -48,4 +48,4 @@ export const formatDuration = (millis: number) => {
 export const defined = (v: unknown | undefined) => v !== undefined;
 
 
-export const joinLines = (lines: (string | undefined)[]) => lines.filter(defined).join('\n');
+export const joinLines = (lines: (string | undefined)[], separator: string = '\n') => lines.filter(defined).join(separator);
