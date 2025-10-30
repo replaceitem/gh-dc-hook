@@ -43,7 +43,7 @@ export abstract class EmbedTransformer<T extends BaseWebhook> extends EventTrans
     public static transformRepository(repository: RepositoryWebhooks) {
         return {
             title: repository.full_name,
-            url: repository.url,
+            url: repository.html_url,
         }
     }
 }
